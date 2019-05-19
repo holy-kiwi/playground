@@ -13,7 +13,7 @@ function UploaderView(props: UploaderViewProps) {
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
     return (
-        <div {...getRootProps()}>
+        <div {...getRootProps()} style={{backgroundColor: '#ffffff50', width: 200, height: 100, textAlign: 'center'}}>
             <input {...getInputProps()} />
             {
                 isDragActive ?
