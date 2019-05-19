@@ -5,7 +5,7 @@ import PluginView from '../components/PluginView';
 import Plugin from '../models/Plugin';
 
 interface HomeScreenState {
-    plugins: string[];
+    plugins: Plugin[];
 }
 
 class HomeScreen extends Component<{}, HomeScreenState> {
@@ -16,7 +16,7 @@ class HomeScreen extends Component<{}, HomeScreenState> {
         }
     }
 
-    addPlugin = (plugin: string) => {
+    addPlugin = (plugin: Plugin) => {
         this.setState({
             plugins: [...this.state.plugins, plugin],
         });
@@ -28,7 +28,7 @@ class HomeScreen extends Component<{}, HomeScreenState> {
             <div className="HomeScreenContainer">
                 <UploaderView onUpload={this.addPlugin} />
                 {
-                    plugins && plugins.map((item: string, index: number) =>
+                    plugins && plugins.map((item: Plugin, index: number) =>
                         <PluginView key={index} plugin={item}/>
                     )
                 }

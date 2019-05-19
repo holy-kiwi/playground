@@ -3,7 +3,7 @@ import React, { Component, RefObject } from 'react';
 import Plugin from '../models/Plugin';
 
 interface PluginViewProps {
-    plugin: string;
+    plugin: Plugin;
 }
 
 class PluginView extends Component<PluginViewProps> {
@@ -13,20 +13,15 @@ class PluginView extends Component<PluginViewProps> {
     }
 
     componentDidMount() {
-        let plugin = this.props.plugin;
-        plugin = plugin.replace(/\n/g, '');      // HTML Code 개행 제거 (정규표현식을 위해)
-        const extractscript = /<script>(.+)<\/script>/gim.exec(plugin);
-        if (extractscript) {
-            plugin=plugin.replace(extractscript[0],"");
-            new Function(extractscript[1])();
-        }
+        let plugin: Plugin = this.props.plugin;
+        new Function(plugin.jsSource)();
     }
 
     render() {
         const { plugin } = this.props;
         return (
             <div>
-                <div dangerouslySetInnerHTML={{__html: plugin}} />
+                <div dangerouslySetInnerHTML={{__html: plugin.htmlSource}} />
             </div>
         );
     }

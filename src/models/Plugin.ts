@@ -1,11 +1,20 @@
-interface Plugin {
+export default class Plugin {
+    manifest: Manifest;
+    htmlSource: string;
+    jsSource: string;
+
+    constructor() {
+        this.manifest = undefined;
+        this.htmlSource = '';
+        this.jsSource = '';
+    }
+}
+
+export interface Manifest {
     manifestVersion: number;
     name: string;
     version: string;
     description: string;
-    source: string;
     width: number;
     height: number;
 }
-
-export default Plugin;

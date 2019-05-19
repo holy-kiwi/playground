@@ -3,7 +3,6 @@
     "name": "Clock",
     "version": "0.0.1",
     "description": "This is just CLOCK",
-    "source": "index.html",
     "width": 300,
     "height": 100
 }

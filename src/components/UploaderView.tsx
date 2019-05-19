@@ -1,29 +1,14 @@
 import React, { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
-import Plugin from '../models/Plugin';
+import { uploadPlugin } from '../models/Uploader';
 
 interface UploaderViewProps {
     onUpload: (plugin: any) => void;
 }
 
 function UploaderView(props: UploaderViewProps) {
-    const onDrop = useCallback((acceptedFiles: any[]) => {
-        const reader = new FileReader()
-
-        reader.onabort = () => console.log('file reading was aborted');
-        reader.onerror = () => console.log('file reading has failed');
-        reader.onload = (e: any) => {
-            // Do whatever you want with the file contents
-            const text = e.target.result;
-            console.log(text);
-            // const plugin: any = JSON.parse(text as string);
-            props.onUpload(text);
-        }
-
-        acceptedFiles.forEach(file => {
-
-            reader.readAsText(file)
-        });
+    const onDrop = useCallback((acceptedFiles: File[]) => {
+        uploadPlugin(acceptedFiles, props.onUpload);
     }, []);
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
