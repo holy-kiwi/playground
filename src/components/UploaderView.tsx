@@ -3,7 +3,7 @@ import { useDropzone } from 'react-dropzone'
 import Plugin from '../models/Plugin';
 
 interface UploaderViewProps {
-    onUpload: (plugin: Plugin) => void;
+    onUpload: (plugin: any) => void;
 }
 
 function UploaderView(props: UploaderViewProps) {
@@ -12,15 +12,18 @@ function UploaderView(props: UploaderViewProps) {
 
         reader.onabort = () => console.log('file reading was aborted');
         reader.onerror = () => console.log('file reading has failed');
-        reader.onload = () => {
+        reader.onload = (e: any) => {
             // Do whatever you want with the file contents
-            const binaryStr = reader.result;
-            console.log(binaryStr);
-            const plugin: Plugin = JSON.parse(binaryStr as string);
-            props.onUpload(plugin);
+            const text = e.target.result;
+            console.log(text);
+            // const plugin: any = JSON.parse(text as string);
+            props.onUpload(text);
         }
 
-        acceptedFiles.forEach(file => reader.readAsBinaryString(file));
+        acceptedFiles.forEach(file => {
+
+            reader.readAsText(file)
+        });
     }, []);
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 

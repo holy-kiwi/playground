@@ -1,38 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CLOCK</title>
-    <style>
-        body {
-            margin: 0;
-        }
-        #container {
-            display: flex;
-            min-height: 100vh;
-            justify-content: center;
-            align-items: center;
-            background-color: #ffffff00;
-        }
-        #clock {
-            color: #fff;
-            font-size: 32px;
-            text-shadow: 0px 2px 8px #444;
-            user-select: none;
-        }
-    </style>
-</head>
-<body>
+<div>
     <div id="container">
         <div id="clock">
-            10:23:02 PM
+            00:00:00
         </div>
 
     </div>
-
-    <script>
+    <script id="playground-script">
         const clock = document.getElementById('clock');
         let currentTime = new Date();
         clock.innerHTML = getCurrentTime();
@@ -51,5 +24,24 @@
             return num;
         }
     </script>
-</body>
-</html>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #container {
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff00;
+        }
+
+        #clock {
+            color: #fff;
+            font-size: 32px;
+            text-shadow: 0px 2px 8px #444;
+            user-select: none;
+        }
+    </style>
+</div>
