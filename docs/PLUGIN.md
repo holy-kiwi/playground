@@ -93,6 +93,6 @@ function pad(num) {
 
 ## 테스트 방법
 
-1. [plgr.netlify.com](plgr.netlify.com)에 접속한다.
+1. [plgr.netlify.com](https://plgr.netlify.com/)에 접속한다.
 2. `manifest.json`, `index.html`, `index.js`를 한꺼번에 드래그하여 좌측상단에 놓는다.
 3. 잘작동하는지 테스트한다.
