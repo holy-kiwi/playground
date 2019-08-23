@@ -1,0 +1,8 @@
+{
+    "manifest_version": 1,
+    "name": "Bitcoin Tracker",
+    "version": "0.0.1",
+    "description": "This is just Bitcoin Tracker",
+    "width": 300,
+    "height": 100
+}
