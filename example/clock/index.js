@@ -7,7 +7,9 @@ setInterval(() => {
 
 function getCurrentTime() {
     const date = new Date();
-    return `${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+    return `${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(
+        date.getSeconds()
+    )}`;
 }
 
 function pad(num) {
