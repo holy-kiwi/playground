@@ -16,6 +16,35 @@ class HomeScreen extends Component<{}, HomeScreenState> {
         }
     }
 
+    // doCORSRequest(options, printResult) {
+    //     const cors_api_url = 'https://cors-anywhere.herokuapp.com/';
+    //     var x = new XMLHttpRequest();
+    //     x.open(options.method, cors_api_url + options.url);
+    //     x.onload = x.onerror = function () {
+    //         printResult(
+    //             options.method + ' ' + options.url + '\n' +
+    //             x.status + ' ' + x.statusText + '\n\n' +
+    //             (x.responseText || '')
+    //         );
+    //     };
+    //     if (/^POST/i.test(options.method)) {
+    //         x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    //     }
+    //     x.send(options.data);
+    // }
+
+    componentDidMount() {
+        // this.doCORSRequest({
+        //     method: 'GET',
+        //     url: 'https://coinmarketcap.com/currencies/bitcoin/',
+        // }, function printResult(result) {
+        //     var $ = cheerio.load(result);
+        //     const dollar = $("span.details-panel-item--price__value").text();
+        //     console.log(dollar);
+        //     console.log(result);
+        // });
+    }
+
     addPlugin = (plugin: Plugin) => {
         this.setState({
             plugins: [...this.state.plugins, plugin],
@@ -29,7 +58,7 @@ class HomeScreen extends Component<{}, HomeScreenState> {
                 <UploaderView onUpload={this.addPlugin} />
                 {
                     plugins && plugins.map((item: Plugin, index: number) =>
-                        <PluginView key={index} plugin={item}/>
+                        <PluginView key={index} plugin={item} />
                     )
                 }
             </div>

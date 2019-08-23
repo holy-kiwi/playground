@@ -1,5 +1,5 @@
 
-import React, { Component, RefObject } from 'react';
+import React, { Component } from 'react';
 import Plugin from '../models/Plugin';
 
 interface PluginViewProps {
@@ -14,14 +14,18 @@ class PluginView extends Component<PluginViewProps> {
 
     componentDidMount() {
         let plugin: Plugin = this.props.plugin;
-        new Function(plugin.jsSource)();
+        new Function(
+            'request',
+            'cheerio',
+            plugin.jsSource
+        )(require('request'), require('cheerio'))();
     }
 
     render() {
         const { plugin } = this.props;
         return (
-            <div style={{width: plugin.manifest.width, height: plugin.manifest.height}}>
-                <div dangerouslySetInnerHTML={{__html: plugin.htmlSource}} />
+            <div style={{ width: plugin.manifest.width, height: plugin.manifest.height }}>
+                <div dangerouslySetInnerHTML={{ __html: plugin.htmlSource }} />
             </div>
         );
     }
