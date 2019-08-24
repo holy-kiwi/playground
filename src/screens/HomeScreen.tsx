@@ -1,53 +1,42 @@
 import React, { Component } from 'react';
 import './HomeScreen.css';
+import update from 'immutability-helper'
 import UploaderView from '../components/UploaderView';
-import PluginView from '../components/PluginView';
 import Plugin from '../models/Plugin';
+import Container from '../components/Container';
 
 interface HomeScreenState {
-    plugins: Plugin[];
+    plugins: { [key: string]: Plugin };
 }
 
 class HomeScreen extends Component<{}, HomeScreenState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            plugins: [],
+            plugins: {},
         }
     }
 
-    // doCORSRequest(options, printResult) {
-    //     const cors_api_url = 'https://cors-anywhere.herokuapp.com/';
-    //     var x = new XMLHttpRequest();
-    //     x.open(options.method, cors_api_url + options.url);
-    //     x.onload = x.onerror = function () {
-    //         printResult(
-    //             options.method + ' ' + options.url + '\n' +
-    //             x.status + ' ' + x.statusText + '\n\n' +
-    //             (x.responseText || '')
-    //         );
-    //     };
-    //     if (/^POST/i.test(options.method)) {
-    //         x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    //     }
-    //     x.send(options.data);
-    // }
-
-    componentDidMount() {
-        // this.doCORSRequest({
-        //     method: 'GET',
-        //     url: 'https://coinmarketcap.com/currencies/bitcoin/',
-        // }, function printResult(result) {
-        //     var $ = cheerio.load(result);
-        //     const dollar = $("span.details-panel-item--price__value").text();
-        //     console.log(dollar);
-        //     console.log(result);
-        // });
+    addPlugin = (plugin: Plugin) => {
+        const { id } = plugin;
+        this.setState({
+            plugins: {
+                ...this.state.plugins,
+                [id]: plugin,
+            }
+        });
     }
 
-    addPlugin = (plugin: Plugin) => {
+    setPlugin = (id: string, left: number, top: number) => {
         this.setState({
-            plugins: [...this.state.plugins, plugin],
+            plugins: update(
+                this.state.plugins,
+                {
+                    [id]: {
+                        $merge: { left, top }
+                    }
+                }
+            ),
         });
     }
 
@@ -56,11 +45,7 @@ class HomeScreen extends Component<{}, HomeScreenState> {
         return (
             <div className="HomeScreenContainer">
                 <UploaderView onUpload={this.addPlugin} />
-                {
-                    plugins && plugins.map((item: Plugin, index: number) =>
-                        <PluginView key={index} plugin={item} />
-                    )
-                }
+                <Container plugins={plugins} setPlugin={this.setPlugin} />
             </div>
         )
     }

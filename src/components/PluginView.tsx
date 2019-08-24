@@ -8,12 +8,9 @@ interface PluginViewProps {
 
 class PluginView extends Component<PluginViewProps> {
 
-    constructor(props: PluginViewProps) {
-        super(props);
-    }
-
     componentDidMount() {
-        let plugin: Plugin = this.props.plugin;
+        const { plugin } = this.props;
+
         new Function(
             'request',
             'cheerio',
