@@ -1,6 +1,9 @@
 import React, { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { uploadPlugin } from '../models/Uploader';
+import { InjectedComponent } from '../common';
+import { HomeScreenStore } from '../stores';
+import Plugin from '../models/Plugin';
 
 const styles: React.CSSProperties = {
     backgroundColor: '#ffffff50',
@@ -14,12 +17,14 @@ const styles: React.CSSProperties = {
 }
 
 interface UploaderViewProps {
-    onUpload: (plugin: any) => void;
+    HomeScreenStore: HomeScreenStore;
 }
 
 function UploaderView(props: UploaderViewProps) {
     const onDrop = useCallback((acceptedFiles: File[]) => {
-        uploadPlugin(acceptedFiles, props.onUpload);
+        uploadPlugin(acceptedFiles, (plugin: Plugin) => {
+            props.HomeScreenStore.addPlugin(plugin);
+        });
     }, []);
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
@@ -35,4 +40,4 @@ function UploaderView(props: UploaderViewProps) {
     );
 }
 
-export default UploaderView;
+export default InjectedComponent(UploaderView, HomeScreenStore);

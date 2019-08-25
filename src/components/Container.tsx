@@ -2,8 +2,9 @@ import React from 'react'
 import { useDrop, XYCoord } from 'react-dnd'
 import Draggable from './Draggable'
 import { DragItem, ItemTypes } from '../types';
-import Plugin from '../models/Plugin';
 import PluginView from './PluginView';
+import { InjectedComponent } from '../common';
+import { HomeScreenStore } from '../stores';
 
 const styles: React.CSSProperties = {
     position: 'absolute',
@@ -13,11 +14,10 @@ const styles: React.CSSProperties = {
 }
 
 export interface ContainerProps {
-    plugins: { [key: string]: Plugin };
-    setPlugin: (id: string, left: number, top: number) => void;
+    HomeScreenStore: HomeScreenStore;
 }
 
-const Container: React.FC<ContainerProps> = ({ plugins, setPlugin }) => {
+const Container: React.FC<ContainerProps> = ({ HomeScreenStore }) => {
     const [, drop] = useDrop({
         accept: ItemTypes.BOX,
         drop(item: DragItem, monitor) {
@@ -30,27 +30,31 @@ const Container: React.FC<ContainerProps> = ({ plugins, setPlugin }) => {
     })
 
     const moveBox = (id: string, left: number, top: number) => {
-        setPlugin(id, left, top);
+        HomeScreenStore.changePlugin(id, left, top);
     }
 
+    const { plugins, isEditMode } = HomeScreenStore;
     return (
         <div ref={drop} style={styles}>
             {Object.keys(plugins).map(key => {
                 console.log(key);
                 const { left, top, id } = plugins[key];
-                return (
-                    <Draggable
-                        key={id}
-                        id={id}
-                        left={left}
-                        top={top}
-                    >
-                        <PluginView plugin={plugins[key]} />
-                    </Draggable>
-                )
+                if (isEditMode)
+                    return (
+                        <Draggable
+                            key={id}
+                            id={id}
+                            left={left}
+                            top={top}
+                        >
+                            <PluginView plugin={plugins[key]} />
+                        </Draggable>
+                    )
+                else
+                    return <PluginView style={{ position: 'absolute', left: plugins[key].left, top: plugins[key].top }} key={id} plugin={plugins[key]} />
             })}
         </div>
     )
 }
 
-export default Container
+export default InjectedComponent(Container, HomeScreenStore);

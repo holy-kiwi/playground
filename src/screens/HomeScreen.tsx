@@ -1,54 +1,29 @@
 import React, { Component } from 'react';
 import './HomeScreen.css';
-import update from 'immutability-helper'
 import UploaderView from '../components/UploaderView';
-import Plugin from '../models/Plugin';
 import Container from '../components/Container';
+import { InjectedComponent } from '../common';
+import { HomeScreenStore } from '../stores';
 
-interface HomeScreenState {
-    plugins: { [key: string]: Plugin };
+interface HomeScreenProps {
+    HomeScreenStore: HomeScreenStore;
 }
 
-class HomeScreen extends Component<{}, HomeScreenState> {
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            plugins: {},
-        }
-    }
+interface HomeScreenState {
+}
 
-    addPlugin = (plugin: Plugin) => {
-        const { id } = plugin;
-        this.setState({
-            plugins: {
-                ...this.state.plugins,
-                [id]: plugin,
-            }
-        });
-    }
-
-    setPlugin = (id: string, left: number, top: number) => {
-        this.setState({
-            plugins: update(
-                this.state.plugins,
-                {
-                    [id]: {
-                        $merge: { left, top }
-                    }
-                }
-            ),
-        });
-    }
+class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
 
     render() {
-        const { plugins } = this.state;
+        const { HomeScreenStore } = this.props;
         return (
             <div className="HomeScreenContainer">
-                <UploaderView onUpload={this.addPlugin} />
-                <Container plugins={plugins} setPlugin={this.setPlugin} />
+                <UploaderView />
+                <Container />
+                <button style={{ position: 'absolute', right: 20, top: 20, }} onClick={() => { HomeScreenStore.toggleEditMode() }}>편집</button>
             </div>
         )
     }
 }
 
-export default HomeScreen;
+export default InjectedComponent(HomeScreen, HomeScreenStore);

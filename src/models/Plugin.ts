@@ -1,22 +1,15 @@
+import { observable } from "mobx";
+
 const uuidv4 = require('uuid/v4');
 
 export default class Plugin {
-    manifest: Manifest;
-    htmlSource: string;
-    jsSource: string;
+    manifest: Manifest = undefined;
+    htmlSource: string = '';
+    jsSource: string = '';
 
-    id: string;
-    left: number;
-    top: number;
-
-    constructor() {
-        this.manifest = undefined;
-        this.htmlSource = '';
-        this.jsSource = '';
-        this.id = uuidv4();
-        this.left = 100;
-        this.top = 100;
-    }
+    id: string = uuidv4();
+    @observable left: number = 100;
+    @observable top: number = 100;
 }
 
 export interface Manifest {
