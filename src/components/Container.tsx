@@ -3,8 +3,8 @@ import { useDrop, XYCoord } from 'react-dnd'
 import Draggable from './Draggable'
 import { DragItem, ItemTypes } from '../types';
 import PluginView from './PluginView';
-import { InjectedComponent } from '../common';
 import { HomeScreenStore } from '../stores';
+import { InjectedComponent } from '../common';
 
 const styles: React.CSSProperties = {
     position: 'absolute',
@@ -37,7 +37,6 @@ const Container: React.FC<ContainerProps> = ({ HomeScreenStore }) => {
     return (
         <div ref={drop} style={styles}>
             {Object.keys(plugins).map(key => {
-                console.log(key);
                 const { left, top, id } = plugins[key];
                 if (isEditMode)
                     return (

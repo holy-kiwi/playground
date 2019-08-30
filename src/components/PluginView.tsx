@@ -15,7 +15,7 @@ class PluginView extends Component<PluginViewProps> {
         new Function(
             'request',
             'cheerio',
-            `return function() { ${plugin.jsSource} }`
+            `return () => { ${plugin.jsSource} }`
         )(require('request'), require('cheerio'))();
     }
 
