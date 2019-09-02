@@ -5,6 +5,7 @@ import { DragItem, ItemTypes } from '../types';
 import PluginView from './PluginView';
 import { HomeScreenStore } from '../stores';
 import { InjectedComponent } from '../common';
+import LocalStorageUtil from '../storage/LocalStorageUtil';
 
 const styles: React.CSSProperties = {
     position: 'absolute',
@@ -31,6 +32,8 @@ const Container: React.FC<ContainerProps> = ({ HomeScreenStore }) => {
 
     const moveBox = (id: string, left: number, top: number) => {
         HomeScreenStore.changePlugin(id, left, top);
+        // 플러그인 저장
+        LocalStorageUtil.setPlugins(HomeScreenStore.plugins);
     }
 
     const { plugins, isEditMode } = HomeScreenStore;

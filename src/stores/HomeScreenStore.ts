@@ -1,11 +1,15 @@
-import { observable, action, computed } from 'mobx';
-import Plugin from '../models/Plugin';
+import { observable, action } from 'mobx';
+import Plugin, { PluginDictionary } from '../models/Plugin';
 
 export class HomeScreenStore {
     static NAME = 'HomeScreenStore';
 
-    @observable plugins: { [key: string]: Plugin } = {};
+    @observable plugins: PluginDictionary = {};
     @observable isEditMode: boolean = false;
+
+    @action setPlugins(pluginDictionary: PluginDictionary) {
+        this.plugins = pluginDictionary;
+    }
 
     @action addPlugin(plugin: Plugin) {
         const { id } = plugin;

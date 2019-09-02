@@ -2,6 +2,8 @@ import { observable } from "mobx";
 
 const uuidv4 = require('uuid/v4');
 
+export type PluginDictionary = { [key: string]: Plugin };
+
 export default class Plugin {
     manifest: Manifest = undefined;
     htmlSource: string = '';

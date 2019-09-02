@@ -4,6 +4,7 @@ import { uploadPlugin } from '../models/Uploader';
 import { InjectedComponent } from '../common';
 import { HomeScreenStore } from '../stores';
 import Plugin from '../models/Plugin';
+import LocalStorageUtil from '../storage/LocalStorageUtil';
 
 const styles: React.CSSProperties = {
     backgroundColor: '#ffffff50',
@@ -24,6 +25,8 @@ function UploaderView(props: UploaderViewProps) {
     const onDrop = useCallback((acceptedFiles: File[]) => {
         uploadPlugin(acceptedFiles, (plugin: Plugin) => {
             props.HomeScreenStore.addPlugin(plugin);
+            // 플러그인 저장
+            LocalStorageUtil.setPlugins(props.HomeScreenStore.plugins);
         });
     }, []);
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
