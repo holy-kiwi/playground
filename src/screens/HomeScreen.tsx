@@ -30,6 +30,7 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
                 <button style={{ position: 'absolute', right: 60, top: 20, }} onClick={() => {
                     HomeScreenStore.setPlugins({});
                     LocalStorageUtil.setPlugins(HomeScreenStore.plugins);
+                    localStorage.clear();
                 }}>초기화</button>
             </div>
         )
