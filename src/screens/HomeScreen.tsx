@@ -5,6 +5,7 @@ import Container from '../components/Container';
 import { InjectedComponent } from '../common';
 import { HomeScreenStore } from '../stores';
 import { Launcher } from '../common/Launcher';
+import LocalStorageUtil from '../storage/LocalStorageUtil';
 
 interface HomeScreenProps {
     HomeScreenStore: HomeScreenStore;
@@ -26,6 +27,10 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
                 <UploaderView />
                 <Container />
                 <button style={{ position: 'absolute', right: 20, top: 20, }} onClick={() => { HomeScreenStore.toggleEditMode() }}>편집</button>
+                <button style={{ position: 'absolute', right: 60, top: 20, }} onClick={() => {
+                    HomeScreenStore.setPlugins({});
+                    LocalStorageUtil.setPlugins(HomeScreenStore.plugins);
+                }}>초기화</button>
             </div>
         )
     }
