@@ -9,6 +9,7 @@ const style: React.CSSProperties = {
     // backgroundColor: 'white',
     // padding: '0.5rem 1rem',
     cursor: 'move',
+    zIndex: 1,
 }
 
 export interface DraggableProps {

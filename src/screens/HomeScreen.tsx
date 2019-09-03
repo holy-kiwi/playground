@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './HomeScreen.css';
 import UploaderView from '../components/UploaderView';
 import Container from '../components/Container';
@@ -26,12 +27,15 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
             <div className="HomeScreenContainer">
                 <UploaderView />
                 <Container />
-                <button style={{ position: 'absolute', right: 20, top: 20, }} onClick={() => { HomeScreenStore.toggleEditMode() }}>편집</button>
-                <button style={{ position: 'absolute', right: 60, top: 20, }} onClick={() => {
-                    HomeScreenStore.setPlugins({});
-                    LocalStorageUtil.setPlugins(HomeScreenStore.plugins);
-                    localStorage.clear();
-                }}>초기화</button>
+                <div className="MenuContainer">
+                    <Link to='/store'><button>스토어</button></Link>
+                    <button onClick={() => { HomeScreenStore.toggleEditMode() }}>편집</button>
+                    <button onClick={() => {
+                        HomeScreenStore.setPlugins({});
+                        LocalStorageUtil.setPlugins(HomeScreenStore.plugins);
+                        localStorage.clear();
+                    }}>초기화</button>
+                </div>
             </div>
         )
     }
