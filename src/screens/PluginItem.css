@@ -1,0 +1,77 @@
+.plugin_box {
+    width:30%;
+    /* height:500px; */
+    /* min-width:300px;  */
+    margin:10px;
+
+    /* setting for check boundary */
+    /* background-color:red;  */
+
+    text-align:center; 
+    margin-bottom:20px;
+
+    border-radius: 20px 20px 20px 20px / 20px 20px 20px 20px;
+    background-color: white;
+
+    box-shadow: 0px 2px 8px #999;
+}
+
+
+.plugin_title {
+    text-align: left;
+    padding-left: 15%;
+
+    /* setting for check boundary */
+    /* background-color:blue; */
+}
+
+
+.plugin_image {
+    width: 70%;
+    height: 50%; 
+    /* height: 70%; */
+}
+
+
+.plugin_link {
+    margin-top: 30px;
+    width:90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 0;
+
+    /* setting for check boundary */
+    /* background-color: yellow; */
+
+    display: flex;
+    justify-content:space-around;
+}
+
+
+.plugin_link_detail {
+    text-align:left;
+    font-size:2.0em;
+    margin: 0;
+    /* width:30%; */
+    float:left;
+}
+
+
+.plugin_link_detail a {
+    color: black;
+}
+
+
+.plugin_link_download {
+    text-align:right;
+    font-size:2.0em;
+    margin: 0;
+
+    /* width:30%; */
+    float:right
+}
+
+
+.plugin_link_download a {
+    color: black;
+}

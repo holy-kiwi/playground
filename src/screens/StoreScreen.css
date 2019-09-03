@@ -1,0 +1,91 @@
+.StoreScreen {
+    text-align: center;
+  }
+  
+  
+  
+  
+  
+.header {
+    background-color: red;
+
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-content: flex-start;
+
+}
+
+
+.title_container {
+    background-color: white;
+
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+
+
+}
+
+
+
+
+
+.btn_container {
+    background-color: blue;
+
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.header_btn {
+    background-color: white;
+    border-radius: 15px;
+    text-transform: uppercase; 
+    font-size: 1.5em;
+    padding: 10px;
+
+}
+
+.info_btn{
+    color: rgb(251, 201, 200);
+    border: 3px solid rgb(251, 201, 200);
+}
+
+.utility_btn {
+    color: #0099CC;
+    border: 3px solid #0099CC;
+}
+
+.famous_btn{
+    color: rgb(199, 203, 254);
+    border: 3px solid rgb(199, 203, 254);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.home_btn {
+
+    background-color: transparent;
+    border: 0px transparent;
+    font-size: 2em;
+}
+
