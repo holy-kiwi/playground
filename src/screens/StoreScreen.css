@@ -18,7 +18,7 @@
 
 
 .title_container {
-    background-color: white;
+    background-color: yellow;
 
     width: 40%;
     display: flex;
@@ -41,7 +41,7 @@
 
 }
 
-.header_btn {
+/* .header_btn {
     background-color: white;
     border-radius: 15px;
     text-transform: uppercase; 
@@ -49,30 +49,18 @@
     padding: 10px;
 
 }
-
 .info_btn{
     color: rgb(251, 201, 200);
     border: 3px solid rgb(251, 201, 200);
 }
-
 .utility_btn {
     color: #0099CC;
     border: 3px solid #0099CC;
 }
-
 .famous_btn{
     color: rgb(199, 203, 254);
     border: 3px solid rgb(199, 203, 254);
-}
-
-
-
-
-
-
-
-
-
+} */
 
 
 

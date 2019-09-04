@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PluginAgent from '../market/PluginAgent';
 import './StoreScreen.css';
 import PluginItem from './PluginItem';
+import { Button } from 'antd';
+
 
 interface Props {
 
@@ -65,10 +67,16 @@ class StoreScreen extends Component<Props, State> {
         
         
                   <div className="btn_container">
-                    <button className="header_btn info_btn">정보</button>
+                    {/* <button className="header_btn info_btn">정보</button>
                     <button  className="header_btn utility_btn">유틸리티</button>
-                    <button className="header_btn famous_btn">추천순</button>
+                    <button className="header_btn famous_btn">추천순</button> */}
+                    <Button type="primary" size="large" shape="round">정보</Button>
+                    <Button type="primary" size="large">유틸리티</Button>
+                    <Button type="primary" size="large">추천순</Button>
+
                   </div>
+        
+
         
                 </div>
         
