@@ -1,6 +1,7 @@
 .pluginItemCard {
     width: 30%;
     margin: 15px;
+    min-width: 280px;
 }
 
 /* css for thumbnail img

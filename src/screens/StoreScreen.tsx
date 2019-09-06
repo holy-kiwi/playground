@@ -3,13 +3,18 @@ import PluginAgent from '../market/PluginAgent';
 import './StoreScreen.css';
 import PluginItem from './PluginItem';
 import { Button } from 'antd';
+import Plugin from '../models/Plugin';
+import { Link, Route } from 'react-router-dom';
+import PluginDetailScreen from './PluginDetailScreen';
+
 
 interface Props {
-
+  location: any;
+  match: any;
 }
 
 interface State {
-  plugins: any[];
+  plugins: Plugin[];
   pluginsLoading: boolean;
 }
 
@@ -36,6 +41,13 @@ class StoreScreen extends Component<Props, State> {
 
     render() {
       
+        const { location, match } = this.props;
+        
+        const match2 = {match}.match; //문제없음
+        const location2 = {location}.location; //문제없음
+
+        // console.log(match2);
+        // console.log(location2);
         
         return (
 
@@ -69,11 +81,14 @@ class StoreScreen extends Component<Props, State> {
                   {!this.state.pluginsLoading ?
                     this.state.plugins.map((value) => 
                       <PluginItem 
-                        name={value.name} 
-                        image={value.image}
-                        detail={value.detail}
-                        download={value.download}
-                        loading={this.state.pluginsLoading} />
+                        name={value.manifest.name} 
+                        image={value.manifest.image}
+                        detail={value.manifest.description}
+                        download={value.manifest.download}
+                        loading={this.state.pluginsLoading}
+                        id={value.id}
+                        location={location2}
+                        match={match2} />
                     )
                     :
                     Array(6).fill(0).map((value) => 
@@ -82,9 +97,13 @@ class StoreScreen extends Component<Props, State> {
                           image={undefined}
                           detail={undefined}
                           download={undefined}
-                          loading={this.state.pluginsLoading} />
+                          loading={this.state.pluginsLoading}
+                          id={undefined}
+                          location={undefined}
+                          match={undefined}  />
                       )
                     }
+
                 </div>
                 {/* end of body */}
 
