@@ -71,7 +71,9 @@ class StoreScreen extends Component<Props, State> {
 
         
                 <div className="btn_container2">
+                  <Link to={"/"}>
                     <button className="home_btn">홈</button>
+                  </Link>
                 </div>
         
         
