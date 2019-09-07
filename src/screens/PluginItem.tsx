@@ -61,11 +61,9 @@ class PluginItem extends Component<Props, State> {
                     actions= {[
                         // <Link to={`${match["url"]}/${this.props.id}`}>
                         <Link to={`/store/${this.props.id}`}>
-                            <Button icon="info-circle" target={this.props.id} >
-                                Search
-                            </Button>
+                            <Button icon="info-circle" target={this.props.id} disabled={loading}>Detail</Button>
                         </Link>,
-                        <Button icon="cloud-download">Download</Button>
+                        <Button icon="cloud-download" disabled={loading}>Download</Button>
                     ]}
                 >
                 
