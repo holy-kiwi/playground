@@ -1,10 +1,12 @@
 import React, { Component } from 'react'; 
+import { match } from 'react-router';
+import { Location } from 'history';
 
 
 interface Props {
     id: string;
-    match: object;
-    location: object;
+    match: match<{id: string}>
+    location: Location;
 }
 
 interface State {
@@ -22,20 +24,20 @@ class PluginDetailScreen extends Component<Props, State> {
 
     render() {
         
-        // const {Header, Content, Footer } = Layout;
-        const  match = this.props.match;
-        const match2 = {match}.match;
+        // // const {Header, Content, Footer } = Layout;
+        // const  match = this.props.match;
+        // const match2 = {match}.match;
 
-        const location = this.props.location;
-        const location2 = {location}.location;
-        console.log(match2);
-        console.log(location2);
-        
-        
+        // const location = this.props.location;
+        // const location2 = {location}.location;
+
+        // console.log(match2);
+        // console.log(location2);
         
         //여기서 id값으로 서버에 질문해서 플러그인 정보 받아옴
         const plugin_name = "플러그인 이름";
         const plugin_subtitle = "플러그인 섭 타이틀(있으면)";
+        const { match, location } = this.props;
 
         return (
             <div>
@@ -54,11 +56,13 @@ class PluginDetailScreen extends Component<Props, State> {
                 <p>
                     설명설명
                     <br/>
-                    location.pathname : {location2["pathname"]}
+                    location.pathname : {location.pathname}
                     <br/>
-                    match.path : {match2["path"]}
+                    match.path : {match.path}
                     <br/>
-                    match.url : {match2["url"]}
+                    match.url : {match.url}
+                    <br/>
+                    id: {match.params.id}
                 </p>
 
             </div>
