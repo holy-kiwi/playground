@@ -1,77 +1,103 @@
 import React, {Component} from 'react';
-import {Form, Input, Icon, Button} from 'antd';
+import {Input, Form, Button} from 'antd';
+import UploaderView from '../components/UploaderView';
+import { DndProvider } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+import { Link } from 'react-router-dom';
+import { HomeScreenStore } from '../stores/HomeScreenStore';
+import LocalStorageUtil from '../storage/LocalStorageUtil';
+import { Launcher } from '../common/Launcher';
+import './HomeScreen2.css';
+
 
 interface Props {
     form: any;
 }
 
 interface State {
-
 }
 
-function hasErrors(fieldsError) {
-    return Object.keys(fieldsError).some(field => fieldsError[field]);
+
+interface HomeScreenProps {
+    HomeScreenStore: HomeScreenStore;
 }
 
-class PluginUploadScreen extends Component<Props, State>{
+interface HomeScreenState {
+}
+
+const {TextArea} = Input;
+
+
+class PluginUploadScreen extends Component<HomeScreenProps, HomeScreenState>{
 
     componentDidMount() {
-        this.props.form.validateFields();
-    }
-    
-    handleSubmit = e => {
-        e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
-                console.log('Received values of from :', values);
-            }
-        });
+        Launcher.launch(this.props.HomeScreenStore);
     }
 
     render () {
-
-        const { getFieldDecorator, getFiledsError, getFieldError, isFieldTouched } = this.props.form;
+        const { HomeScreenStore } = this.props;
         
-        const usernameError = isFieldTouched('username') && getFieldError('username');
-        const passwordError = isFieldTouched('password') && getFieldError('password');
-
-
-
-
         return (
-            <Form layout="vertical" onSubmit={this.handleSubmit}>
-                <Form.Item validateStatus={usernameError? 'error':''} help={usernameError || ''}>
-                    {getFieldDecorator('username', {
-                        rules: [{ required: true, mesage: 'Please input your username!'}],
-                    })(
-                        <Input
-                            prefix={<Icon type="user" style={{color: 'rbga(0,0,0,.25)'}}/>}
-                            placeholder="Username" 
-                        />,
-                    )}
-                </Form.Item>
+            <DndProvider backend={HTML5Backend}>
+
+                <div className="HomeScreenContainer">
+
+                    <div className="Header">
+                        <div className="MenuContainer">
+                            <Link to='/store'><Button type="primary">스토어</Button></Link>
+                            <Button onClick={() => { HomeScreenStore.toggleEditMode() }}>편집</Button>
+                            <Button onClick={() => {
+                                HomeScreenStore.setPlugins({});
+                                LocalStorageUtil.setPlugins(HomeScreenStore.plugins);
+                                localStorage.clear();
+                            }}>초기화</Button>
+                        </div>
+                    </div>
+                
+                
+                    <div className="Body">
+                        <div className="FormContainerBackground">
+                            <div className="FormContainer">
+                                <Form>
+                                    <Form.Item label="NAME">
+                                        <Input 
+                                            placeholder="Input your Plugin's name" 
+                                            size="large" 
+                                            allowClear
+                                        />
+                                    </Form.Item>
+
+                                    <Form.Item label="DESCRIPTIONS">
+                                        <TextArea
+                                            placeholder="Input your Plugin's descriptions"
+                                            rows={6}
+                                        />
+                                    </Form.Item>
+
+                                    <Form.Item label="FILES">
+                                        <UploaderView />
+                                    </Form.Item>
+                                </Form>
+                            </div>
+                        </div>
+
+                        <div className="subminBtnContainer">
+                            <Button
+                                onClick ={() => {
+                            }}>Submit!</Button>
+                        </div>
+                        
+                    </div>
 
 
-                <Form.Item validateStatus={passwordError ? 'error':''} help={passwordError ||''}>
-                    {getFieldDecorator('password', {
-                        reles:[{required: true, message:'Please imput your Password!'}],
-                    })(
-                        <Input 
-                            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.35)' }}/>}
-                            type="password"
-                            placeholder="Password"
-                        />,
-                    )}
-                </Form.Item>
-
-
-                <Form.Item>
-                    <Button type="primary" htmlType="submit" disabled={hasErrors(getFiledsError())}>
-                        Submit!
-                    </Button>}
-                </Form.Item>
-
-            </Form>
+                </div>
+            </DndProvider>
+            
+                
         );
     }
 }
+
+
+
+export default PluginUploadScreen;
