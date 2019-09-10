@@ -9,7 +9,7 @@ export default class Plugin {
     htmlSource?: string = '';
     jsSource?: string = '';
 
-    id?: string = uuidv4();
+    plugin_id?: string = uuidv4();
     @observable left?: number = 100;
     @observable top?: number = 100;
 }

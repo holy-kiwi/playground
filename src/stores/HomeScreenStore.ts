@@ -12,7 +12,7 @@ export class HomeScreenStore {
     }
 
     @action addPlugin(plugin: Plugin) {
-        const { id } = plugin;
+        const { plugin_id: id } = plugin;
         this.plugins[id] = plugin;
     }
 

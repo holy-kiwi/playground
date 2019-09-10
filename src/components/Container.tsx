@@ -40,7 +40,7 @@ const Container: React.FC<ContainerProps> = ({ HomeScreenStore }) => {
     return (
         <div ref={drop} style={styles}>
             {Object.keys(plugins).map(key => {
-                const { left, top, id } = plugins[key];
+                const { left, top, plugin_id: id } = plugins[key];
                 if (isEditMode)
                     return (
                         <Draggable
