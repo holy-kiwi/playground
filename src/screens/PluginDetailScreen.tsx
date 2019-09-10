@@ -17,12 +17,12 @@ interface State {
 }
 
 class PluginDetailScreen extends Component<Props, State> {
-
-    public state: State;
   
     constructor(props) {
         super(props);
-        
+        this.state = {
+            plugin: undefined,
+        }
     }
 
     async componentDidMount() {
@@ -38,6 +38,9 @@ class PluginDetailScreen extends Component<Props, State> {
         const plugin_name = "플러그인 이름";
         const plugin_subtitle = "플러그인 섭 타이틀(있으면)";
         const { match, location } = this.props;
+        const { plugin } = this.state;
+
+        if (plugin === undefined) return null;
         
         return (
             <div>
