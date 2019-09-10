@@ -1,6 +1,8 @@
 import React, { Component } from 'react'; 
 import { match } from 'react-router';
 import { Location } from 'history';
+import PluginAgent from '../market/PluginAgent';
+import Plugin from '../models/Plugin';
 
 
 interface Props {
@@ -10,6 +12,7 @@ interface Props {
 }
 
 interface State {
+    plugin: Plugin;
 
 }
 
@@ -22,23 +25,20 @@ class PluginDetailScreen extends Component<Props, State> {
         
     }
 
-    render() {
+    async componentDidMount() {
+        const { match, location } = this.props;
+        const plugin: Plugin = await PluginAgent.fetchPlugin(match.params.id);
         
-        // // const {Header, Content, Footer } = Layout;
-        // const  match = this.props.match;
-        // const match2 = {match}.match;
+        this.setState({plugin});
+    }
 
-        // const location = this.props.location;
-        // const location2 = {location}.location;
-
-        // console.log(match2);
-        // console.log(location2);
+    render() {
         
         //여기서 id값으로 서버에 질문해서 플러그인 정보 받아옴
         const plugin_name = "플러그인 이름";
         const plugin_subtitle = "플러그인 섭 타이틀(있으면)";
         const { match, location } = this.props;
-
+        
         return (
             <div>
                 {/* <Header>
@@ -50,11 +50,11 @@ class PluginDetailScreen extends Component<Props, State> {
                 </Content>
                 <Footer></Footer> */}
                 
-                <h2><strong>{plugin_name}</strong> 디테일 페이지 입니다.</h2>
-                <h5>{plugin_subtitle}</h5>
-                <img src="https://i.stack.imgur.com/GNhxO.png" />
+                <h2><strong>{plugin.manifest.name}</strong> 디테일 페이지 입니다.</h2>
+                <h5>{plugin.manifest.name}</h5>
+                <img src={plugin.manifest.image} />
                 <p>
-                    설명설명
+                    {plugin.manifest.description}
                     <br/>
                     location.pathname : {location.pathname}
                     <br/>

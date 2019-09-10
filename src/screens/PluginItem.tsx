@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import "./PluginItem.css";
-import { Card, Icon, Avatar, Skeleton, Button } from 'antd';
+import { Card, Icon, Avatar, Skeleton, Button, Descriptions } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import { Link, Route } from 'react-router-dom';
 import { render } from 'react-dom';
@@ -60,7 +60,7 @@ class PluginItem extends Component<Props, State> {
                     }
                     actions= {[
                         // <Link to={`${match["url"]}/${this.props.id}`}>
-                        <Link to={`/store/${this.props.id}`}>
+                        <Link to={`/store/${id}`}>
                             <Button icon="info-circle" target={this.props.id} disabled={loading}>Detail</Button>
                         </Link>,
                         <Button icon="cloud-download" disabled={loading}>Download</Button>
@@ -71,7 +71,7 @@ class PluginItem extends Component<Props, State> {
                         <Meta
                             avatar = {<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                             title = {name}
-                            description = {name}
+                            description = {detail}
                         />
                     </Skeleton>
 

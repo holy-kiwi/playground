@@ -32,6 +32,7 @@ class StoreScreen extends Component<Props, State> {
 
   async componentDidMount() {
     const plugins: Plugin[] = await PluginAgent.fetchPlugins();
+
     this.setState({
       plugins,
       pluginsLoading: false,
@@ -39,14 +40,10 @@ class StoreScreen extends Component<Props, State> {
   }
 
   render() {
-
     const { location, match } = this.props;
 
     const match2 = { match }.match; //문제없음
     const location2 = { location }.location; //문제없음
-
-    // console.log(match2);
-    // console.log(location2);
 
     return (
 
