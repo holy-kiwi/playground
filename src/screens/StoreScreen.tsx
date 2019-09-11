@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PluginAgent from '../market/PluginAgent';
-import './StoreScreen.css';
 import PluginItem from './PluginItem';
 import { Button } from 'antd';
 import Plugin from '../models/Plugin';
 import { Link, Route } from 'react-router-dom';
 import PluginDetailScreen from './PluginDetailScreen';
+import './StoreScreen.css';
 
 
 interface Props {
