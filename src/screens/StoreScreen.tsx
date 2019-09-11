@@ -110,7 +110,9 @@ class StoreScreen extends Component<Props, State> {
         {/* footer */}
         <div className="footer">
           <div className="btn_container3">
-            <button className="upload_btn">업로드</button>
+            <Link to="/upload">
+              <button className="upload_btn">업로드</button>
+            </Link>
             <button className="develop_guide_btn">개발가이드</button>
           </div>
         </div>

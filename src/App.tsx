@@ -14,8 +14,8 @@ function App() {
   return (
     <div>
       <Provider {...Stores}>
-        {/* <Route exact path="/" component={HomeScreen} /> */}
-        <Route exact path="/" component={PluginUploadScreen} />
+        <Route exact path="/" component={HomeScreen} />
+        <Route path="/upload" component={PluginUploadScreen} />
         <Switch>
           <Route path="/store/:id" component={PluginDetailScreen} />
           <Route path="/store" component={StoreScreen} />

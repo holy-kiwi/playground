@@ -41,19 +41,29 @@ class PluginUploadScreen extends Component<HomeScreenProps, HomeScreenState>{
             <DndProvider backend={HTML5Backend}>
 
                 <div className="HomeScreenContainer">
+              
+                    <div className="header">
 
-                    <div className="Header">
-                        <div className="MenuContainer">
-                            <Link to='/store'><Button type="primary">스토어</Button></Link>
-                            <Button onClick={() => { HomeScreenStore.toggleEditMode() }}>편집</Button>
-                            <Button onClick={() => {
-                                HomeScreenStore.setPlugins({});
-                                LocalStorageUtil.setPlugins(HomeScreenStore.plugins);
-                                localStorage.clear();
-                            }}>초기화</Button>
-                        </div>
+                    <div className="title_container">
+                        <h1>플러그인 스토어</h1>
                     </div>
-                
+
+                    <div className="btn_container1">
+                        <Button type="primary" size="large" shape="round">정보</Button>
+                        <Button type="primary" size="large">유틸리티</Button>
+                        <Button type="primary" size="large">추천순</Button>
+                    </div>
+
+                    </div>
+                    {/* end of header */}
+
+
+                    <div className="btn_container2">
+                    <Link to={"/"}>
+                        <button className="home_btn">홈</button>
+                    </Link>
+                    </div>
+                    
                 
                     <div className="Body">
                         <div className="FormContainerBackground">
