@@ -99,9 +99,7 @@ class PluginDetailScreen extends Component<Props, State> {
                     </div>
 
                     <div className="btn_container4">
-                        <Link to={`/download/${match.params.id}`}>
-                            <Button className="download_btn">다운로드</Button>
-                        </Link>
+                        <Button className="download_btn">다운로드</Button>  
                     </div>
 
                 </div>

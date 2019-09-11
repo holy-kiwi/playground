@@ -63,9 +63,7 @@ class PluginItem extends Component<Props, State> {
                         <Link to={`/store/${id}`}>
                             <Button icon="info-circle" target={this.props.id} disabled={loading}>Detail</Button>
                         </Link>,
-                        <Link to={`/download/${id}`}>
-                            <Button icon="cloud-download" disabled={loading}>Download</Button>
-                        </Link>
+                        <Button icon="cloud-download" disabled={loading}>Download</Button>
                     ]}
                 >
                 
