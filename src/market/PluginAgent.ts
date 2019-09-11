@@ -1,6 +1,6 @@
 import Plugin from "../models/Plugin"
 import axios from 'axios';
-const API_URL_BASE = 'https://cors-anywhere.herokuapp.com/https://ankxg1c1n7.execute-api.ap-northeast-2.amazonaws.com/dev';
+const API_URL_BASE = 'https://ankxg1c1n7.execute-api.ap-northeast-2.amazonaws.com/dev';
 const API_URL_PLUGIN_ALL = `${API_URL_BASE}/plugin-all`
 const API_URL_PLUGIN = `${API_URL_BASE}/plugin/`
 

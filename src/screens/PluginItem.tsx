@@ -17,6 +17,8 @@ interface Props {
     id: string;
     match: object;
     location: object;
+    
+    onDownload?: () => void;
 }
 
 interface State {
@@ -63,7 +65,7 @@ class PluginItem extends Component<Props, State> {
                         <Link to={`/store/${id}`}>
                             <Button icon="info-circle" target={this.props.id} disabled={loading}>Detail</Button>
                         </Link>,
-                        <Button icon="cloud-download" disabled={loading}>Download</Button>
+                        <Button icon="cloud-download" disabled={loading} onClick={this.props.onDownload}>Download</Button>
                     ]}
                 >
                 

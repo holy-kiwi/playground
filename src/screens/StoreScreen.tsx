@@ -6,11 +6,14 @@ import Plugin from '../models/Plugin';
 import { Link, Route } from 'react-router-dom';
 import PluginDetailScreen from './PluginDetailScreen';
 import './StoreScreen.css';
+import { InjectedComponent } from '../common';
+import { HomeScreenStore } from '../stores';
 
 
 interface Props {
   location: any;
   match: any;
+  HomeScreenStore: HomeScreenStore;
 }
 
 interface State {
@@ -37,6 +40,12 @@ class StoreScreen extends Component<Props, State> {
       plugins,
       pluginsLoading: false,
     })
+  }
+
+  onDownload = async (pluginId: string) => {
+    const plugin: Plugin = await PluginAgent.fetchPlugin(pluginId);
+    console.log(plugin);
+    this.props.HomeScreenStore.addPlugin({...plugin, left: 100, top: 100});
   }
 
   render() {
@@ -86,7 +95,8 @@ class StoreScreen extends Component<Props, State> {
                 loading={this.state.pluginsLoading}
                 id={value.plugin_id}
                 location={location2}
-                match={match2} />
+                match={match2}
+                onDownload={() => { this.onDownload(value.plugin_id) }} />
             )
             :
             Array(6).fill(0).map((value) =>
@@ -124,4 +134,4 @@ class StoreScreen extends Component<Props, State> {
   }
 }
 
-export default StoreScreen;
+export default InjectedComponent(StoreScreen, HomeScreenStore);
