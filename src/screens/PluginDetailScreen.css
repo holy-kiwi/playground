@@ -89,7 +89,7 @@
     min-width: 540px;
     /* background-color: yellow; */
     text-align: left;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     padding: 5px;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.45);
@@ -98,3 +98,26 @@
 
 
 
+.btn_container4 {
+    width: 60%;
+    min-width: 540px;
+    /* background-color: red; */
+    position: relative;
+    bottom: 0px;
+    right: 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    margin-bottom: 15px;
+
+    
+}
+
+
+.download_btn {
+    background-color: transparent;
+    border: 0px transparent;
+    font-size: 2em;
+    height: auto;
+   
+}
