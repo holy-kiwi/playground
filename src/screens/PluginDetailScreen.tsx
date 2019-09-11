@@ -39,12 +39,18 @@ class PluginDetailScreen extends Component<Props, State> {
     render() {
 
         //여기서 id값으로 서버에 질문해서 플러그인 정보 받아옴
-        const plugin_name = "플러그인 이름";
-        const plugin_subtitle = "플러그인 섭 타이틀(있으면)";
+        let plugin_name = "플러그인 이름";
+        let plugin_img = "https://i.stack.imgur.com/GNhxO.png";
+        let plugin_description = "플러그인 설명";
+
         const { match, location } = this.props;
         const { plugin } = this.state;
 
         if (plugin === undefined) return null;
+
+        plugin_name = plugin.manifest.name;
+        plugin_img = plugin.manifest.image;
+        plugin_description = plugin.manifest.description;
 
         return (
             <div className="detailScreen">
@@ -76,25 +82,17 @@ class PluginDetailScreen extends Component<Props, State> {
                 {/* body */}
                 <div className="body detail">
                     <div className="pluginTitleContainer">
-                        <h2><strong>{plugin_name}</strong> 디테일 페이지 입니다.</h2>
-                        <h5>{plugin_subtitle}</h5>
+                        {/* 제목부분 간격 조정 필요 */}
+                        <h2><strong>{plugin_name}</strong></h2>
                     </div>
 
                     <div className="pluginImageContainer">
-                        <img src="https://i.stack.imgur.com/GNhxO.png" />
+                        <img src={ plugin_img }/>
                     </div>
 
                     <div className="pluginDescriptionContainer">
                         <p>
-                            설명설명
-                            <br />
-                            location.pathname : {location.pathname}
-                            <br />
-                            match.path : {match.path}
-                            <br />
-                            match.url : {match.url}
-                            <br />
-                            id: {match.params.id}
+                            { plugin_description }
                         </p>
                     </div>
 
