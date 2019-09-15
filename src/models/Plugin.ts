@@ -1,7 +1,5 @@
 import { observable } from "mobx";
 
-const uuidv4 = require('uuid/v4');
-
 export type PluginDictionary = { [key: string]: Plugin };
 
 export default class Plugin {
@@ -9,7 +7,7 @@ export default class Plugin {
     htmlSource?: string = '';
     jsSource?: string = '';
 
-    plugin_id?: string = uuidv4();
+    plugin_id?: string = '';
     @observable left?: number = 100;
     @observable top?: number = 100;
 }

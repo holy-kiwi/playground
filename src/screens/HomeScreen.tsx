@@ -25,13 +25,12 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
 
     componentDidMount() {
         Launcher.launch(this.props.HomeScreenStore);
+        console.log(this.props.HomeScreenStore.plugins);
     }
 
     onUpload = (acceptedFiles: File[]) => {
         uploadPlugin(acceptedFiles, (plugin: Plugin) => {
             this.props.HomeScreenStore.addPlugin(plugin);
-            // 플러그인 저장
-            LocalStorageUtil.setPlugins(this.props.HomeScreenStore.plugins);
         });
     }
 

@@ -40,12 +40,12 @@ const DragAndDropZone: React.FC<ContainerProps> = ({ HomeScreenStore }) => {
     return (
         <div ref={drop} style={styles}>
             {Object.keys(plugins).map(key => {
-                const { left, top, plugin_id: id } = plugins[key];
+                const { left, top, plugin_id } = plugins[key];
                 if (isEditMode)
                     return (
                         <Draggable
-                            key={id}
-                            id={id}
+                            key={plugin_id}
+                            id={plugin_id}
                             left={left}
                             top={top}
                         >
@@ -53,7 +53,7 @@ const DragAndDropZone: React.FC<ContainerProps> = ({ HomeScreenStore }) => {
                         </Draggable>
                     )
                 else
-                    return <PluginView style={{ position: 'absolute', left: plugins[key].left, top: plugins[key].top }} key={id} plugin={plugins[key]} />
+                    return <PluginView style={{ position: 'absolute', left: plugins[key].left, top: plugins[key].top }} key={plugin_id} plugin={plugins[key]} />
             })}
         </div>
     )
