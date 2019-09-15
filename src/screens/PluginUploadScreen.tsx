@@ -4,10 +4,8 @@ import UploaderView from '../components/UploaderView';
 import { DndProvider } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { Link } from 'react-router-dom';
-import LocalStorageUtil from '../storage/LocalStorageUtil';
-import { Launcher } from '../common/Launcher';
-import './HomeScreen2.css';
 
+import './PluginUploadScreen.css';
 
 interface Props {
 
