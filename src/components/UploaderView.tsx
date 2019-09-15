@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
+import { inject, observer } from 'mobx-react';
 import { uploadPlugin } from '../models/Uploader';
-import { InjectedComponent } from '../common';
 import { HomeScreenStore } from '../stores';
 import Plugin from '../models/Plugin';
 import LocalStorageUtil from '../storage/LocalStorageUtil';
@@ -18,10 +18,10 @@ const styles: React.CSSProperties = {
 }
 
 interface UploaderViewProps {
-    HomeScreenStore: HomeScreenStore;
+    HomeScreenStore?: HomeScreenStore;
 }
 
-function UploaderView(props: UploaderViewProps) {
+const UploaderView = (props: UploaderViewProps) => {
     const onDrop = useCallback((acceptedFiles: File[]) => {
         uploadPlugin(acceptedFiles, (plugin: Plugin) => {
             props.HomeScreenStore.addPlugin(plugin);
@@ -43,4 +43,4 @@ function UploaderView(props: UploaderViewProps) {
     );
 }
 
-export default InjectedComponent(UploaderView, HomeScreenStore);
+export default inject('HomeScreenStore')(observer(UploaderView));

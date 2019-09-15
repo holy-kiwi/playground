@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
 import { DndProvider } from 'react-dnd';
 import { Button } from 'antd';
@@ -6,18 +7,17 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import './HomeScreen.css';
 import UploaderView from '../components/UploaderView';
 import Container from '../components/Container';
-import { InjectedComponent } from '../common';
 import { HomeScreenStore } from '../stores';
 import { Launcher } from '../common/Launcher';
 import LocalStorageUtil from '../storage/LocalStorageUtil';
 
 interface HomeScreenProps {
-    HomeScreenStore: HomeScreenStore;
+    HomeScreenStore?: HomeScreenStore;
 }
 
 interface HomeScreenState {
 }
-
+@inject('HomeScreenStore') @observer
 class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
 
     componentDidMount() {
@@ -46,4 +46,4 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
     }
 }
 
-export default InjectedComponent(HomeScreen, HomeScreenStore);
+export default HomeScreen;

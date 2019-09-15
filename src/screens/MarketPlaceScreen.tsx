@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
-import { InjectedComponent } from '../common';
-import { HomeScreenStore } from '../stores';
 import PluginListContainer from '../container/PluginListContainer';
 
 import './MarketPlaceScreen.css';
 
-interface Props {
-  HomeScreenStore: HomeScreenStore;
-}
-
-class MarketPlaceScreen extends Component<Props> {
+class MarketPlaceScreen extends Component {
   render() {
     return (
 
@@ -59,4 +53,4 @@ class MarketPlaceScreen extends Component<Props> {
   }
 }
 
-export default InjectedComponent(MarketPlaceScreen, HomeScreenStore);
+export default MarketPlaceScreen;

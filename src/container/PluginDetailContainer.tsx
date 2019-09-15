@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
 import PluginAgent from '../agent/PluginAgent';
 import Plugin from '../models/Plugin';
 import { HomeScreenStore } from '../stores';
-import { InjectedComponent } from '../common';
 import { match, withRouter } from 'react-router';
 import PluginDetail from '../presentational/PluginDetail';
 
 interface Props {
-    HomeScreenStore: HomeScreenStore;
+    HomeScreenStore?: HomeScreenStore;
     match: match<{ id: string }>;
 }
 
@@ -16,6 +16,7 @@ interface State {
     loading: boolean;
 }
 
+@inject('HomeScreenStore') @observer
 class PluginDetailContainer extends Component<Props, State> {
     constructor(props) {
         super(props);
@@ -35,7 +36,6 @@ class PluginDetailContainer extends Component<Props, State> {
 
     onDownload = async (pluginId: string) => {
         const plugin: Plugin = await PluginAgent.fetchPlugin(pluginId);
-        console.log(plugin);
         this.props.HomeScreenStore.addPlugin({ ...plugin, left: 100, top: 100 });
     }
 
@@ -44,4 +44,4 @@ class PluginDetailContainer extends Component<Props, State> {
     }
 }
 
-export default withRouter(InjectedComponent(PluginDetailContainer, HomeScreenStore));
+export default withRouter(PluginDetailContainer);

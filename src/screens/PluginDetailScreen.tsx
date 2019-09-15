@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 import PluginDetailContainer from '../container/PluginDetailContainer';
 
@@ -22,11 +21,11 @@ class PluginDetailScreen extends Component<Props> {
                         <h1>플러그인 스토어</h1>
                     </div>
 
-                    <div className="btn_container1">
+                    {/* <div className="btn_container1">
                         <Button type="primary" size="large" shape="round">정보</Button>
                         <Button type="primary" size="large">유틸리티</Button>
                         <Button type="primary" size="large">추천순</Button>
-                    </div>
+                    </div> */}
 
                 </div>
                 {/* end of header */}

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
 import PluginAgent from '../agent/PluginAgent';
 import Plugin from '../models/Plugin';
 import { HomeScreenStore } from '../stores';
 import PluginList from '../presentational/PluginList';
-import { InjectedComponent } from '../common';
 
 interface Props {
-    HomeScreenStore: HomeScreenStore;
+    HomeScreenStore?: HomeScreenStore;
 }
 
 interface State {
@@ -14,7 +14,7 @@ interface State {
     pluginsLoading: boolean;
 }
 
-
+@inject('HomeScreenStore') @observer
 class PluginListContainer extends Component<Props, State> {
     constructor(props) {
         super(props);
@@ -42,4 +42,4 @@ class PluginListContainer extends Component<Props, State> {
     }
 }
 
-export default InjectedComponent(PluginListContainer, HomeScreenStore);
+export default PluginListContainer;

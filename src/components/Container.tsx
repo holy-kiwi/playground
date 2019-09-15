@@ -1,10 +1,10 @@
 import React from 'react'
 import { useDrop, XYCoord } from 'react-dnd'
+import { inject, observer } from 'mobx-react';
 import Draggable from './Draggable'
 import { DragItem, ItemTypes } from '../types';
 import PluginView from './PluginView';
 import { HomeScreenStore } from '../stores';
-import { InjectedComponent } from '../common';
 import LocalStorageUtil from '../storage/LocalStorageUtil';
 
 const styles: React.CSSProperties = {
@@ -15,7 +15,7 @@ const styles: React.CSSProperties = {
 }
 
 export interface ContainerProps {
-    HomeScreenStore: HomeScreenStore;
+    HomeScreenStore?: HomeScreenStore;
 }
 
 const Container: React.FC<ContainerProps> = ({ HomeScreenStore }) => {
@@ -59,4 +59,4 @@ const Container: React.FC<ContainerProps> = ({ HomeScreenStore }) => {
     )
 }
 
-export default InjectedComponent(Container, HomeScreenStore);
+export default inject('HomeScreenStore')(observer(Container));
