@@ -10,7 +10,10 @@ import Container from '../components/Container';
 import { HomeScreenStore } from '../stores';
 import { Launcher } from '../common/Launcher';
 import LocalStorageUtil from '../storage/LocalStorageUtil';
+import { uploadPlugin } from '../models/Uploader';
+import Plugin from '../models/Plugin';
 
+const TESTMODE = false;
 interface HomeScreenProps {
     HomeScreenStore?: HomeScreenStore;
 }
@@ -24,12 +27,20 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
         Launcher.launch(this.props.HomeScreenStore);
     }
 
+    onUpload = (acceptedFiles: File[]) => {
+        uploadPlugin(acceptedFiles, (plugin: Plugin) => {
+            this.props.HomeScreenStore.addPlugin(plugin);
+            // 플러그인 저장
+            LocalStorageUtil.setPlugins(this.props.HomeScreenStore.plugins);
+        });
+    }
+
     render() {
         const { HomeScreenStore } = this.props;
         return (
             <DndProvider backend={HTML5Backend}>
                 <div className="HomeScreenContainer">
-                    <UploaderView />
+                    {TESTMODE && <UploaderView onUpload={this.onUpload} />}
                     <Container />
                     <div className="MenuContainer">
                         <Link to='/store'><Button type="primary">스토어</Button></Link>

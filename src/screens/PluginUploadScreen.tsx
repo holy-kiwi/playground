@@ -6,23 +6,43 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { Link } from 'react-router-dom';
 
 import './PluginUploadScreen.css';
+import { uploadPlugin } from '../models/Uploader';
+import Plugin from '../models/Plugin';
+import PluginAgent from '../agent/PluginAgent';
 
 interface Props {
 
 }
 
 interface State {
+    plugin: Plugin;
 }
 
 const { TextArea } = Input;
 
 class PluginUploadScreen extends Component<Props, State>{
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            plugin: undefined,
+        }
+    }
 
-    componentDidMount() {
+    onUpload = (acceptedFiles: File[]) => {
+        uploadPlugin(acceptedFiles, (plugin: Plugin) => {
+            this.setState({
+                plugin,
+            });
+        });
+    }
 
+    onSubmit = async () => {
+        if (this.state.plugin === undefined) return;
+        await PluginAgent.uploadPlugin(this.state.plugin);
     }
 
     render() {
+        const { plugin } = this.state;
 
         return (
             <DndProvider backend={HTML5Backend}>
@@ -60,6 +80,7 @@ class PluginUploadScreen extends Component<Props, State>{
                                         <Input
                                             placeholder="Input your Plugin's name"
                                             size="large"
+                                            value={plugin !== undefined ? plugin.manifest.name : ''}
                                             allowClear
                                         />
                                     </Form.Item>
@@ -68,11 +89,12 @@ class PluginUploadScreen extends Component<Props, State>{
                                         <TextArea
                                             placeholder="Input your Plugin's descriptions"
                                             rows={6}
+                                            value={plugin !== undefined ? plugin.manifest.description : ''}
                                         />
                                     </Form.Item>
 
                                     <Form.Item label="FILES">
-                                        <UploaderView />
+                                        <UploaderView onUpload={this.onUpload} />
                                     </Form.Item>
                                 </Form>
                             </div>
@@ -80,8 +102,7 @@ class PluginUploadScreen extends Component<Props, State>{
 
                         <div className="subminBtnContainer">
                             <Button
-                                onClick={() => {
-                                }}>Submit!</Button>
+                                onClick={this.onSubmit}>Submit!</Button>
                         </div>
 
                     </div>
