@@ -18,7 +18,7 @@ export interface ContainerProps {
     HomeScreenStore?: HomeScreenStore;
 }
 
-const Container: React.FC<ContainerProps> = ({ HomeScreenStore }) => {
+const DragAndDropZone: React.FC<ContainerProps> = ({ HomeScreenStore }) => {
     const [, drop] = useDrop({
         accept: ItemTypes.BOX,
         drop(item: DragItem, monitor) {
@@ -59,4 +59,4 @@ const Container: React.FC<ContainerProps> = ({ HomeScreenStore }) => {
     )
 }
 
-export default inject('HomeScreenStore')(observer(Container));
+export default inject('HomeScreenStore')(observer(DragAndDropZone));

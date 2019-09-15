@@ -28,7 +28,7 @@ class PluginAgent {
     async uploadPlugin(plugin: Plugin): Promise<void> {
         const pluginRequest: object = plugin;
         pluginRequest['manifest'] = JSON.stringify(plugin.manifest);
-        console.log(JSON.stringify(pluginRequest));
+        // console.log(JSON.stringify(pluginRequest));
         await axios.post(API_URL_PLUGIN, JSON.stringify(pluginRequest));
     }
 }
