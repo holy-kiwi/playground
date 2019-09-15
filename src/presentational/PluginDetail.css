@@ -1,0 +1,125 @@
+.detailScreen {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    background-color: #08aeea;
+    background-image: linear-gradient(0deg, #08aeea 0%, #2af598 100%);
+    min-height: 100vh;
+}
+
+.header {
+    /* background-color: red; */
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
+    margin-top: 15px;
+}
+
+.title_container {
+    /* background-color: yellow; */
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.btn_container1 {
+    /* background-color: blue; */
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn_container2 {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+}
+
+.home_btn {
+    background-color: transparent;
+    border: 0px transparent;
+    font-size: 2em;
+}
+
+/*body css part*/
+.body {
+    width: 80%;
+    /* height: 90%; */
+    min-width: 700px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.detail {
+    flex-direction: column;
+    margin: 15px;
+    /* background-color: red; */
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.pluginTitleContainer {
+    width: 60%;
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.pluginImageContainer {
+    margin-bottom: 15px;
+    width: 540px;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.pluginImageContainer img_row {
+    width: 540px;
+    height: auto;
+}
+
+.pluginImageContainer img_col {
+    height: 300px;
+    width: auto;
+}
+
+.pluginDescriptionContainer {
+    width: 60%;
+    min-width: 540px;
+    min-height: 100px;
+    /* background-color: yellow; */
+    text-align: left;
+    margin-bottom: 20px;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+.btn_container4 {
+    width: 60%;
+    min-width: 540px;
+    /* background-color: red; */
+    position: relative;
+    bottom: 0px;
+    right: 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    margin-bottom: 15px;
+}
+
+.download_btn {
+    background-color: transparent;
+    border: 0px transparent;
+    font-size: 2em;
+    height: auto;
+}
