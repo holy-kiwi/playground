@@ -84,7 +84,7 @@ class PluginListContainer extends Component<Props, State> {
        
         return <>
             {/* <PluginList {...this.state} onDownload={this.onDownload} /> */}
-            <PluginList {...this.state} plugins={filtered_plugins} />
+            <PluginList {...this.state} plugins={filtered_plugins} onDownload={this.onDownload} />
 
             <Modal
                 title="알림"

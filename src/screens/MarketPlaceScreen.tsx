@@ -20,6 +20,12 @@ class MarketPlaceScreen extends Component<Props, State> {
     }
   }
 
+  searchListener =(e) => {
+    this.setState({
+      search_word: e.target.value,
+    });
+  }
+
   render() {
     const { Search } = Input;
 
@@ -39,12 +45,8 @@ class MarketPlaceScreen extends Component<Props, State> {
 
           <div className="search_container">
             <Search 
-              placeholder="Search Plugins that you need!"
-              onChange={(e) => {
-                this.setState({
-                  search_word: e.target.value,
-                });
-              }}
+              placeholder="Search Plugins that you need!" 
+              onChange={this.searchListener}
             />
           </div>
 
