@@ -11,6 +11,7 @@ import { History } from 'history';
 interface Props {
     HomeScreenStore?: HomeScreenStore;
     history: History;
+    search: string,
 }
 
 interface State {
@@ -65,8 +66,26 @@ class PluginListContainer extends Component<Props, State> {
     };
 
     render() {
+        let new_plugins: Plugin[] = this.state.plugins ;
+        const search = this.props.search.toLowerCase();
+
+        if (search !== "") {
+            new_plugins = this.state.plugins.map((value) => {
+                const name = value.manifest.name.toLowerCase();
+                const description = value.manifest.description.toLowerCase();
+                const isMatch = name.includes(search) || description.includes(search);
+
+                if (isMatch) {
+                    return value;
+                } 
+            })
+        }
+        const filtered_plugins: Plugin[] = new_plugins.filter(el => { return el!=null })
+       
         return <>
-            <PluginList {...this.state} onDownload={this.onDownload} />
+            {/* <PluginList {...this.state} onDownload={this.onDownload} /> */}
+            <PluginList {...this.state} plugins={filtered_plugins} />
+
             <Modal
                 title="알림"
                 visible={this.state.downloadSuccessModalOpen}
