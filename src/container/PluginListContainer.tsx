@@ -65,26 +65,24 @@ class PluginListContainer extends Component<Props, State> {
         });
     };
 
-    render() {
-        let new_plugins: Plugin[] = this.state.plugins ;
+    getFilteredPlugins = (): Plugin[] => {
+        const { plugins } = this.state;
         const search = this.props.search.toLowerCase();
+        if (search === undefined || search === '') return plugins;
+        return plugins.filter(plugin => {
+            const { name, description } = plugin.manifest;
+            return name.toLowerCase().includes(search) || description.toLowerCase().includes(search);
+        });
+    }
 
-        if (search !== "") {
-            new_plugins = this.state.plugins.map((value) => {
-                const name = value.manifest.name.toLowerCase();
-                const description = value.manifest.description.toLowerCase();
-                const isMatch = name.includes(search) || description.includes(search);
-
-                if (isMatch) {
-                    return value;
-                } 
-            })
-        }
-        const filtered_plugins: Plugin[] = new_plugins.filter(el => { return el!=null })
+    render() {
        
         return <>
-            {/* <PluginList {...this.state} onDownload={this.onDownload} /> */}
-            <PluginList {...this.state} plugins={filtered_plugins} onDownload={this.onDownload} />
+            <PluginList
+                {...this.state}
+                plugins={this.getFilteredPlugins()}
+                onDownload={this.onDownload}
+            />
 
             <Modal
                 title="알림"
