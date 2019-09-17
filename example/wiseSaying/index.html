@@ -1,0 +1,54 @@
+<head>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/earlyaccess/hanna.css">
+</head>
+<div id="container">
+    <div id="message">
+        LOADING...
+    </div>
+    <div id="author">
+        by. UNKNOWN
+    </div>
+</div>
+
+<style>
+    body {
+        margin: 0;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        height: auto;
+        min-width: 300px;
+        min-height: 100px;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba( 255, 255, 255, 0.5 );
+        padding: 10px;
+        font-family:'Hanna', sans-serif;
+    }
+
+    #message {
+        min-width: 100%;
+        min-height: 70px;
+        {% comment %} background-color: green; {% endcomment %}
+        font-size: x-large;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    #author {
+        min-width: 100%;
+        min-height: 30px;
+        {% comment %} background-color: blue; {% endcomment %}
+        font-size: large;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+</style>
