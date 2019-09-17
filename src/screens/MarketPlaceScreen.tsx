@@ -73,7 +73,9 @@ class MarketPlaceScreen extends Component<Props, State> {
             <Link to="/upload">
               <button className="upload_btn">업로드</button>
             </Link>
-            <button className="develop_guide_btn">개발가이드</button>
+            <Link to="/guide">
+              <button className="develop_guide_btn">개발가이드</button>
+            </Link>
           </div>
         </div>
         {/* end of footer */}

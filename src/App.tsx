@@ -7,6 +7,7 @@ import MarketPlaceScreen from './screens/MarketPlaceScreen';
 import PluginDetailScreen from './screens/PluginDetailScreen';
 import PluginUploadScreen from './screens/PluginUploadScreen';
 import { HomeScreenStore } from './stores';
+import GuideScreen from './screens/GuideScreen';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <BrowserRouter>
           <Route exact path="/" component={HomeScreen} />
           <Route path="/upload" component={PluginUploadScreen} />
+          <Route path="/guide" component={GuideScreen}/>
           <Switch>
             <Route path="/store/:id" component={PluginDetailScreen} />
             <Route path="/store" component={MarketPlaceScreen} />
