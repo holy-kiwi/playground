@@ -13,9 +13,10 @@ import LocalStorageUtil from '../storage/LocalStorageUtil';
 import { uploadPlugin } from '../models/Uploader';
 import Plugin from '../models/Plugin';
 
-const TESTMODE = false;
+let TESTMODE = false;
 interface HomeScreenProps {
     HomeScreenStore?: HomeScreenStore;
+    location: Location;
 }
 
 interface HomeScreenState {
@@ -23,9 +24,17 @@ interface HomeScreenState {
 @inject('HomeScreenStore') @observer
 class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
 
+    constructor(props) {
+        super(props);
+        let params = new URLSearchParams(props.location.search);
+        if (params.get('testmode') === 'true') {
+            TESTMODE = true;
+        }
+    }
+
     componentDidMount() {
         Launcher.launch(this.props.HomeScreenStore);
-        console.log(this.props.HomeScreenStore.plugins);
+        // console.log(this.props.HomeScreenStore.plugins);
     }
 
     onUpload = (acceptedFiles: File[]) => {
