@@ -1,0 +1,113 @@
+<head>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/earlyaccess/hanna.css">
+</head>
+
+<div id="dday_container">
+
+    <div id="left">
+        <input type="text" id="message_input" value="type the message..." />
+        <div id="down">
+            <input type="text" id="date_msg" placeholder="click here to input the date!" disabled />
+            <input type="date" id="date_picker" name="date_picker" min="1900-01-01" required>
+        </div>
+    </div>
+
+    <div id="right">
+        <div id="dday">D-DAY</div>
+    </div>
+</div>
+
+<style>
+
+    body {
+        margin: 0;
+    }
+
+    #dday_container {
+        width: 400px;
+        height: 100px;
+        padding: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        background-color: rgba( 236, 230, 204, 0.9 );
+
+    }
+
+    #left {
+        width: 270px;
+        height: 100%;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    #message_input {
+        width: 100%;
+        height: 50%;
+        font-family:'Hanna', sans-serif;
+        font-size: x-large;
+        background: transparent;
+        border: none;
+    }
+
+    #down {
+        width: 100%;
+        height: 30%;
+        background: transparent;
+        color: pink;
+    }
+    #date_msg {
+        width:100%;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+    }
+     #date_picker {
+        width: 60%;
+        height: 100%;
+        display: none;
+        color: black;
+        background-color: transparent;
+        border: none;
+    }   
+    
+    #right {
+        width: 130px;
+        height: 100%;
+        background: transparent;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color:blue;
+    }
+    #dday {
+        font-family:'Hanna', sans-serif;
+        font-size: xx-large;
+        text: bold;
+        color: rgba(220, 20, 60, 1); 
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    
+   
+
+
+
+
+
+</style>

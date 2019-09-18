@@ -1,0 +1,8 @@
+{
+    "manifest_version": 1,
+    "name": "D-day 계산기",
+    "version": "0.0.1",
+    "description": "기념일과 다가오는 이벤트를 저장해보세요!",
+    "width": 400,
+    "height": 100
+}
