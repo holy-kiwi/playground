@@ -7,11 +7,14 @@ const dday = document.getElementById("dday");
 const DEFAULT_MSG = "type the message...";
 const DEFAULT_DAY = "click here to input the date!";
 const DEFAULT_REMAIN = "D-DAY";
-const MSEC_PER_DAY = 24*60*60*1000;
 
 const KEY_DDAY_MSG = "key:dday_msg";
 const KEY_DDAY_DAY = "key:dday_day";
 const KEY_DDAY_REMAIN = "key:dday_remain";
+
+const MSEC_PER_DAY = 24*60*60*1000;  
+const TIME_GAP = 9*60*60*1000;
+
 
 function replaceall(str, searchStr, replaceStr) {
     return str.split(searchStr).join(replaceStr);
@@ -119,27 +122,21 @@ date_picker.onblur = () => {
 }
 
 
-
+//자정이 지나면 dday부분을 자동으로 바뀌게 하는 부분
+//업데이트 주기는 1분(60000ms)이며
+//TIME_GAP을 보내주는 이유는 new Date() 함수가 date_msg.value 값이 
+//지정한 날의 09:00시 값을 리턴하기 때문에 그 값을 빼주기 위해 dfault로 넘겨준다.
 setInterval(() => {
-    // date_picker.onchange();
-    const timepp = 2*60*60*1000 + 45*60*1000;
-    checkDay(timepp);
-}, 5000);
+    //setting variable is for testing!
+    const setting = 0*60*60*1000 + 0*60*1000;
+    checkDay(TIME_GAP + setting);
+}, 60000);
 
-function checkDay(timepp) {
+function checkDay(TIME_GAP) {
 
-    console.log(date_msg.value);
     const pday = new Date(replaceall(date_msg.value, ".", "-")).getTime();
     const nday = new Date().getTime();
-    let diff = Math.floor((pday - nday+timepp)/MSEC_PER_DAY)+1;
-    
-    // console.log("========================");
-    // console.log(new Date(replaceall(date_msg.value, ".", "-")));
-    // console.log(new Date());
-    // console.log(pday - nday+timepp);
-    
-    // console.log(diff );
-
+    let diff = Math.floor((pday - nday - TIME_GAP)/MSEC_PER_DAY)+1;
 
     if (diff <= 0) {
         diff = diff*-1;
@@ -149,7 +146,5 @@ function checkDay(timepp) {
     else {
         dday.innerHTML = `D-${diff}`;
     }
-
     localStorage.setItem(KEY_DDAY_REMAIN, dday.innerHTML);
-
 }
