@@ -55,7 +55,6 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
                         <Button onClick={() => { HomeScreenStore.toggleEditMode() }}>편집</Button>
                         <Button onClick={() => {
                             HomeScreenStore.setPlugins({});
-                            LocalStorageUtil.setPlugins(HomeScreenStore.plugins);
                             localStorage.clear();
                         }}>초기화</Button>
                     </div>

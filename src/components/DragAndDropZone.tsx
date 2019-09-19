@@ -32,8 +32,10 @@ const DragAndDropZone: React.FC<ContainerProps> = ({ HomeScreenStore }) => {
 
     const moveBox = (id: string, left: number, top: number) => {
         HomeScreenStore.changePlugin(id, left, top);
-        // 플러그인 저장
-        LocalStorageUtil.setPlugins(HomeScreenStore.plugins);
+    }
+
+    const onDelete = (id: string) => {
+        HomeScreenStore.deletePlugin(id);
     }
 
     const { plugins, isEditMode } = HomeScreenStore;
@@ -48,6 +50,7 @@ const DragAndDropZone: React.FC<ContainerProps> = ({ HomeScreenStore }) => {
                             id={plugin_id}
                             left={left}
                             top={top}
+                            onDelete={onDelete}
                         >
                             <PluginView plugin={plugins[key]} />
                         </Draggable>

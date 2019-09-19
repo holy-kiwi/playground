@@ -10,6 +10,7 @@ export class HomeScreenStore {
 
     @action setPlugins(pluginDictionary: PluginDictionary) {
         this.plugins = pluginDictionary;
+        LocalStorageUtil.setPlugins(this.plugins);
     }
 
     @action addPlugin(plugin: Plugin) {
@@ -19,10 +20,17 @@ export class HomeScreenStore {
         LocalStorageUtil.setPlugins(this.plugins);
     }
 
+    @action deletePlugin(id: string) {
+        if (!(id in this.plugins)) return;
+        delete this.plugins[id];
+        LocalStorageUtil.setPlugins(this.plugins);
+    }
+
     @action changePlugin(id: string, left: number, top: number) {
         if (!(id in this.plugins)) return;
         if (left !== undefined) this.plugins[id].left = left;
         if (top !== undefined) this.plugins[id].top = top;
+        LocalStorageUtil.setPlugins(this.plugins);
     }
 
     @action toggleEditMode() {
