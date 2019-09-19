@@ -5,13 +5,14 @@ import Draggable from './Draggable'
 import { DragItem, ItemTypes } from '../types';
 import PluginView from './PluginView';
 import { HomeScreenStore } from '../stores';
-import LocalStorageUtil from '../storage/LocalStorageUtil';
 
-const styles: React.CSSProperties = {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    // border: '1px solid black',
+const styles: { [key: string]: React.CSSProperties } = {
+    dragAndDropZone: {
+        width: '100%',
+        flex: 1,
+        // border: '1px solid black',
+    }
+
 }
 
 export interface ContainerProps {
@@ -40,7 +41,7 @@ const DragAndDropZone: React.FC<ContainerProps> = ({ HomeScreenStore }) => {
 
     const { plugins, isEditMode } = HomeScreenStore;
     return (
-        <div ref={drop} style={styles}>
+        <div ref={drop} style={styles.dragAndDropZone}>
             {Object.keys(plugins).map(key => {
                 const { left, top, plugin_id } = plugins[key];
                 if (isEditMode)

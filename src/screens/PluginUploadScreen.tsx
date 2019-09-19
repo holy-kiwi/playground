@@ -54,7 +54,7 @@ class PluginUploadScreen extends Component<Props, State>{
         return (
             <DndProvider backend={HTML5Backend}>
 
-                <div className="HomeScreenContainer">
+                <div className="uploadScreenContainer">
 
                     <div className="header">
 

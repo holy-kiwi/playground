@@ -8,7 +8,7 @@ const styles: { [key: string]: React.CSSProperties } = {
         minWidth: '700px',
         display: 'flex',
         justifyContent: 'center',
-        alignContent: 'center',
+        alignItems: 'center',
         flexWrap: 'wrap',
     }
 }

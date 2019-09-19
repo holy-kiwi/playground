@@ -36,4 +36,8 @@ export class HomeScreenStore {
     @action toggleEditMode() {
         this.isEditMode = !this.isEditMode;
     }
+
+    @action setEditMode(isEditMode: boolean) {
+        this.isEditMode = isEditMode;
+    }
 }

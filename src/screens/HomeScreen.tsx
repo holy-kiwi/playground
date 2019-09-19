@@ -12,6 +12,8 @@ import { Launcher } from '../common/Launcher';
 import LocalStorageUtil from '../storage/LocalStorageUtil';
 import { uploadPlugin } from '../models/Uploader';
 import Plugin from '../models/Plugin';
+import WhiteButton from '../components/WhiteButton';
+import BlackButton from '../components/BlackButton';
 
 let TESTMODE = false;
 interface HomeScreenProps {
@@ -35,6 +37,7 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
     componentDidMount() {
         Launcher.launch(this.props.HomeScreenStore);
         // console.log(this.props.HomeScreenStore.plugins);
+        this.props.HomeScreenStore.setEditMode(false);
     }
 
     onUpload = (acceptedFiles: File[]) => {
@@ -48,16 +51,20 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
         return (
             <DndProvider backend={HTML5Backend}>
                 <div className="HomeScreenContainer">
+                    <div className="homescreen-HeaderContainer">
+                        {'PLAYGRUOND'}
+                        <div className="homescreen-MenuButtonContainer">
+                            <Link to='/'><WhiteButton label={'HOME'}/></Link>
+                            <Link to='/store'><BlackButton label={'STORE'}/></Link>
+                            <BlackButton onClick={() => { HomeScreenStore.toggleEditMode() }} label={'EDIT'} />
+                            {TESTMODE && <BlackButton onClick={() => {
+                                HomeScreenStore.setPlugins({});
+                                localStorage.clear();
+                            }} label={'RESET'} />}
+                        </div>
+                    </div>
                     {TESTMODE && <UploaderView onUpload={this.onUpload} />}
                     <DragAndDropZone />
-                    <div className="MenuContainer">
-                        <Link to='/store'><Button type="primary">스토어</Button></Link>
-                        <Button onClick={() => { HomeScreenStore.toggleEditMode() }}>편집</Button>
-                        <Button onClick={() => {
-                            HomeScreenStore.setPlugins({});
-                            localStorage.clear();
-                        }}>초기화</Button>
-                    </div>
                 </div>
             </DndProvider>
         )
