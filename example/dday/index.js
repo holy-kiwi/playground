@@ -117,3 +117,39 @@ date_picker.onblur = () => {
         localStorage.setItem(KEY_DDAY_DAY, date_msg.value);
     }
 }
+
+
+
+setInterval(() => {
+    // date_picker.onchange();
+    const timepp = 2*60*60*1000 + 45*60*1000;
+    checkDay(timepp);
+}, 5000);
+
+function checkDay(timepp) {
+
+    console.log(date_msg.value);
+    const pday = new Date(replaceall(date_msg.value, ".", "-")).getTime();
+    const nday = new Date().getTime();
+    let diff = Math.floor((pday - nday+timepp)/MSEC_PER_DAY)+1;
+    
+    // console.log("========================");
+    // console.log(new Date(replaceall(date_msg.value, ".", "-")));
+    // console.log(new Date());
+    // console.log(pday - nday+timepp);
+    
+    // console.log(diff );
+
+
+    if (diff <= 0) {
+        diff = diff*-1;
+        diff++;
+        dday.innerHTML = `${diff}일`;
+    }
+    else {
+        dday.innerHTML = `D-${diff}`;
+    }
+
+    localStorage.setItem(KEY_DDAY_REMAIN, dday.innerHTML);
+
+}
