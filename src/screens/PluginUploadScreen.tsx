@@ -9,9 +9,11 @@ import './PluginUploadScreen.css';
 import { uploadPlugin } from '../models/Uploader';
 import Plugin from '../models/Plugin';
 import PluginAgent from '../agent/PluginAgent';
+import { History } from 'history';
+import { withRouter } from 'react-router';
 
 interface Props {
-
+    history: History;
 }
 
 interface State {
@@ -21,7 +23,7 @@ interface State {
 const { TextArea } = Input;
 
 class PluginUploadScreen extends Component<Props, State>{
-    constructor(props: Props) {
+    constructor(props) {
         super(props);
         this.state = {
             plugin: undefined,
@@ -37,8 +39,13 @@ class PluginUploadScreen extends Component<Props, State>{
     }
 
     onSubmit = async () => {
-        if (this.state.plugin === undefined) return;
+        if (this.state.plugin === undefined) {
+            alert('플러그인을 업로드해주세요!');
+            return;
+        }
         await PluginAgent.uploadPlugin(this.state.plugin);
+        alert('플러그인이 업로드되었습니다.');
+        this.props.history.push('/store');
     }
 
     render() {
@@ -118,4 +125,4 @@ class PluginUploadScreen extends Component<Props, State>{
 
 
 
-export default PluginUploadScreen;
+export default withRouter(PluginUploadScreen);
