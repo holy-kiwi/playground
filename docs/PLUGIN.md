@@ -102,7 +102,7 @@ function pad(num) {
 
 Playground에서 기본적으로 지원하는 외부 라이브러리는 [request](https://github.com/request/request), [cheerio](https://github.com/cheeriojs/cheerio)이다. 이 두 라이브러리를 사용하여 웹 스크래핑을 구현할 수 있다.
 
-브라우저단의 CORS 이슈로 외부 도메인에 접근하는데에 제한이 있으므로 https://cors-anywhere.herokuapp.com와 같은 CORS를 활성화해주는 프록시 서버를 사용하여 해결할 수 있다.
+브라우저단의 CORS 이슈로 외부 도메인에 접근하는데에 제한이 있으므로 [https://cors-anywhere.herokuapp.com](https://cors-anywhere.herokuapp.com)와 같은 CORS를 활성화해주는 프록시 서버를 사용하여 해결할 수 있다.
 
 다음은 비트코인 시세를 가져오는 웹 스크래핑 구현 예제이다. 
 
