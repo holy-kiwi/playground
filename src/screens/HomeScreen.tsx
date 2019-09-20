@@ -52,7 +52,7 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
             <DndProvider backend={HTML5Backend}>
                 <div className="HomeScreenContainer">
                     <div className="homescreen-HeaderContainer">
-                        {'PLAYGRUOND'}
+                        {'PLAYGROUND'}
                         <div className="homescreen-MenuButtonContainer">
                             <Link to='/'><WhiteButton label={'HOME'}/></Link>
                             <Link to='/store'><BlackButton label={'STORE'}/></Link>

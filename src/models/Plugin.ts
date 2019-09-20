@@ -21,5 +21,4 @@ export interface Manifest {
     width: number;
     height: number;
     image: string;
-    download: string;
 }

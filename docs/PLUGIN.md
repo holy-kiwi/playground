@@ -18,6 +18,7 @@ Playground의 Plugin을 개발하기 위해서는 기본적으로 파일 세 개
 | description      | 플러그인 스토어에 나타날 설명         | string |         |
 | width            | 플러그인의 width                      | number |         |
 | height           | 플러그인의 height                     | number |         |
+| image            | 플러그인의 image url                  | string |         |
 
 다음은 manifest.json 예시이다.
 
@@ -93,6 +94,55 @@ function pad(num) {
 
 ## 테스트 방법
 
-1. [plgr.netlify.com](https://plgr.netlify.com/)에 접속한다.
+1. [https://home.plgr.app?testmode=true](https://home.plgr.app?testmode=true)에 접속한다.
 2. `manifest.json`, `index.html`, `index.js`를 한꺼번에 드래그하여 좌측상단에 놓는다.
 3. 잘작동하는지 테스트한다.
+
+## 웹 스크래핑 구현하는 방법
+
+Playground에서 기본적으로 지원하는 외부 라이브러리는 [request](https://github.com/request/request), [cheerio](https://github.com/cheeriojs/cheerio)이다. 이 두 라이브러리를 사용하여 웹 스크래핑을 구현할 수 있다.
+
+브라우저단의 CORS 이슈로 외부 도메인에 접근하는데에 제한이 있으므로 https://cors-anywhere.herokuapp.com와 같은 CORS를 활성화해주는 프록시 서버를 사용하여 해결할 수 있다.
+
+다음은 비트코인 시세를 가져오는 웹 스크래핑 구현 예제이다. 
+
+```js
+const dollar = document.getElementById('dollar');
+
+const getDollarPerBTC = () => {
+    request(
+        'https://cors-anywhere.herokuapp.com/https://coinmarketcap.com/currencies/bitcoin/',
+        function(error, response, html) {
+            // console.log(response);
+            // console.log(html);
+            if (error) console.error(error);
+            if (!error && response.statusCode === 200) {
+                var $ = cheerio.load(html);
+                const result = $(
+                    'span.details-panel-item--price__value'
+                ).text();
+                dollar.innerHTML = '1BTC = $' + result;
+            }
+        }
+    );
+};
+
+getDollarPerBTC();
+```
+
+## 데이터를 저장하는 방법
+
+HTML5의 `localStorage`를 사용하여 데이터를 저장하고 불러올 수 있다.
+
+다음은 데이터를 저장하는 기능을 가지고 있는 메모장 플러그인의 구현 예제이다.
+
+```js
+const memo = document.getElementById('memo');
+const KEY_MEMO = 'key:memo';
+
+memo.value = localStorage.getItem(KEY_MEMO);
+
+memo.onkeyup = () => {
+    localStorage.setItem(KEY_MEMO, memo.value);
+};
+```
