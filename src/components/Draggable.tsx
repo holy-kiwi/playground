@@ -24,6 +24,7 @@ const styles: { [key: string]: React.CSSProperties } = {
         cursor: 'pointer',
         borderRadius: 15,
         backgroundColor: 'gray',
+        zIndex: 100,
     }
 }
 
