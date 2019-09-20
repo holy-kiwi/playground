@@ -1,6 +1,7 @@
 import React from "react";
 import Plugin from "../models/Plugin";
 import PluginItem from "./PluginItem";
+import PluginItemCard from './PluginItemCard';
 
 const styles: { [key: string]: React.CSSProperties } = {
     pluginListContainer: {
@@ -26,7 +27,7 @@ const PluginList = (props: Props) => {
             {
                 !props.pluginsLoading && props.plugins !== undefined ?
                     props.plugins.map((value) =>
-                        <PluginItem
+                        <PluginItemCard
                             key={value.plugin_id}
                             plugin={value}
                             loading={props.pluginsLoading}
@@ -34,7 +35,7 @@ const PluginList = (props: Props) => {
                     )
                     :
                     Array(6).fill(0).map((_, index) =>
-                        <PluginItem
+                        <PluginItemCard
                             key={index}
                             plugin={undefined}
                             loading={props.pluginsLoading} />
