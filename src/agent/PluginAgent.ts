@@ -8,10 +8,15 @@ class PluginAgent {
     async fetchPlugins(): Promise<Plugin[]> {
         const result = await axios.get(API_URL_PLUGIN_ALL);
         const items = result.data.data.Items;
-        let plugins: Plugin[] = items.map(item => {
-            item.manifest = JSON.parse(item.manifest);
-            return item;
-        });
+        let plugins: Plugin[];
+        try {
+            plugins = items.map(item => {
+                item.manifest = JSON.parse(item.manifest);
+                return item;
+            });
+        } catch(error) {
+            plugins = undefined;
+        }
         return plugins;
     }
 
