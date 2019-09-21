@@ -65,7 +65,7 @@
     width: 300px;
     height: 100%;
     border-radius: 20px;
-    border: solid 2px white;
+    border: solid 2px #e6e6e6;
     background-color: transparent;
     font-size: 20px;
     padding-left: 12px;
@@ -193,13 +193,6 @@
     background-color: transparent;
     border: 0px transparent;
     font-size: 2em;
-}
-
-.search_container {
-    /* width: 60%; */
-    /* background-color: blue; */
-    /* margin-left: 15%;
-    margin-right: 7%; */
 }
 
 
