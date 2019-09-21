@@ -8,24 +8,14 @@
     background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
     min-height: 100vh;
 
-
     font-family: 'Montserrat', sans-serif;
-    /* background-image: url('../assets/dashboard-background.png'); */
+    background: white;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
 
-.header {
-    /* background-color: red; */
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-content: flex-start;
-    margin-top: 15px;
-}
-
-.header2 {
+.detailScreen div.header2 {
     width: 100%;
     height: 96px;
     display: flex;
@@ -35,7 +25,7 @@
 
     padding-left: 72px;
     padding-right: 72px;
-    font-family: Montserrat;
+    font-family: "Montserrat";
     font-size: 32px;
     font-weight: 600;
     font-style: normal;
@@ -43,34 +33,19 @@
     line-height: 1.11;
     letter-spacing: 7.2px;
     color: #000000;
+    opacity: 0.75;
+    background-image: linear-gradient(268deg, #016ca0, #369694);
+    margin-top: 0px;
 }
 
-.title_container {
-    /* background-color: yellow; */
-    width: 40%;
-    display: flex;
-    justify-content: flex-start;
-    align-content: center;
+.detailScreen div.header2 div.search_container {
+    visibility: hidden;
 }
 
-.btn_container1 {
-    /* background-color: blue; */
-    width: 40%;
-    display: flex;
-    justify-content: space-around;
-}
 
-.btn_container2 {
-    position: absolute;
-    top: 10px;
-    right: 30px;
-}
 
-.home_btn {
-    background-color: transparent;
-    border: 0px transparent;
-    font-size: 2em;
-}
+
+
 
 
 

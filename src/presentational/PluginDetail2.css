@@ -1,0 +1,101 @@
+.plugindetail {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    background-color: #08AEEA;
+    background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+    min-height: 100vh;
+
+    font-family: 'Montserrat', sans-serif;
+    background: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+.plugindetail div.plugin_info {
+    width: 100%;
+    height: 396px;
+    padding-left: 72px;
+    padding-right: 72px;
+    padding-top: 88px;
+    padding-bottom: 66px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-family: 'NotoSansKR';
+}
+
+.plugindetail div.plugin_info div.image_container {
+    width: 480px;
+    height: 242px;
+    border: solid 1px #c1c1c1;
+    background-color:#e6e6e6;
+}
+
+.plugindetail div.plugin_info div.image_container img {
+    width: 70%;
+    height: 70%;
+    background-color: white;
+}
+
+.plugindetail div.plugin_info div.info_container {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    font-family: 'NotoSansKR';
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #6d6d6d;
+
+}
+
+.plugindetail div.plugin_info div.info_container  div.name {
+    width: 100%;
+    height: auto;
+    font-size: 56px;
+    font-weight: bold;
+    color: #000000;
+}
+
+
+.plugindetail div.plugin_info div.btn_container {
+    /* width:?;
+    height: ?; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+
+
+.plugindetail div.plugin_info div.btn_container .download_btn {
+    width: 194px;
+    height: 30px;
+    
+    border-radius: 21px;
+    background-color: #000000;
+    color: #ffffff;
+
+    font-family: 'Montserrat';
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.22;
+    letter-spacing: normal;
+    text-align: center; 
+}
