@@ -25,27 +25,6 @@ const PluginDetail = (props: Props) => {
                 </Skeleton>
             </Card>
             :
-            // <div className="body detail">
-            //     <div className="pluginTitleContainer">
-            //         {/* 제목부분 간격 조정 필요 */}
-            //         <h2><strong>{plugin.manifest.name}</strong></h2>
-            //     </div>
-
-            //     <div className="pluginImageContainer">
-            //         <img src={plugin.manifest.image} />
-            //     </div>
-
-            //     <div className="pluginDescriptionContainer">
-            //         <p>
-            //             {plugin.manifest.description}
-            //         </p>
-            //     </div>
-
-            //     <div className="btn_container4">
-            //         <Button className="download_btn" onClick={onDownload}>다운로드</Button>
-            //     </div>
-
-            // </div>
 
             <div className="plugindetail"> 
                 <div className="plugin_info">
@@ -53,19 +32,30 @@ const PluginDetail = (props: Props) => {
                         {plugin.manifest.image &&<img src={plugin.manifest.image} alt={plugin.manifest.name}/>}
                     </div>
 
-                    <div className="info_container">
-                        <div className="name"></div>
-                        <div className="uploader"></div>
-                        <div className="version"></div>
-                        <div className="updated_date"></div>
-                    </div>
+                    <div className="right">
+                        <div className="info_container">
+                            <div className="name">{plugin.manifest.name}</div>
+                            <div className="uploader"></div>
+                            <div className="version">버젼:{plugin.manifest.version}</div>
+                            <div className="updated_date"></div>
+                        </div>
 
-                    <div className="btn_container">
-                        <button className="download_btn" disabled={loading} onClick={onDownload}>DOWNLOAD</button>    
+                        <div className="btn_container">
+                            <button className="download_btn" disabled={loading} onClick={onDownload}>DOWNLOAD</button>    
+                        </div>
                     </div>
                 </div>
 
                 <div className="plugin_description">
+                    <div className="line">
+                        <div className="center"></div>
+                    </div>
+                    <div className="info">정보</div>
+                    <div className="description">
+                        <div className="center">
+                            {plugin.manifest.description}
+                        </div>
+                    </div>
                 </div>
             </div>
     );
