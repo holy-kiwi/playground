@@ -33,6 +33,7 @@ class PluginListContainer extends Component<Props, State> {
 
     async componentDidMount() {
         const plugins: Plugin[] = await PluginAgent.fetchPlugins();
+        if (plugins === undefined) alert('일시적인 서버 오류입니다.');
         this.setState({
             plugins,
             pluginsLoading: false,
