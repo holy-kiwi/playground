@@ -1,1 +1,1 @@
-window.location.href = "https://plgr.netlify.com";
+window.location.href = "https://home.plgr.app";
