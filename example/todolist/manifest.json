@@ -1,0 +1,8 @@
+{
+    "manifest_version": 1,
+    "name": "Todo List",
+    "version": "0.0.1",
+    "description": "This is just TODO LIST",
+    "width": 380,
+    "height": 220
+}

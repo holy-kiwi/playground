@@ -12,11 +12,16 @@ class PluginView extends Component<PluginViewProps> {
     componentDidMount() {
         const { plugin } = this.props;
 
-        new Function(
-            'request',
-            'cheerio',
-            `return () => { ${plugin.jsSource} }`
-        )(require('request'), require('cheerio'))();
+        try {
+            new Function(
+                'request',
+                'cheerio',
+                `return () => { ${plugin.jsSource} }`
+            )(require('request'), require('cheerio'))();
+        } catch (error) {
+            alert(`${plugin.manifest.name} 플러그인에 에러가 있습니다. 개발자도구의 콘솔을 확인해주세요.`);
+            console.error(error);
+        }
     }
 
     render() {
