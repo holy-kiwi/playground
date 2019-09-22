@@ -68,7 +68,7 @@ date_picker.addEventListener('change', (e)=> {
 
     const pday = new Date(e.target.value).getTime();
     const nday = new Date().getTime();
-    let diff = Math.floor((pday - nday)/MSEC_PER_DAY)+1;
+    let diff = Math.floor((pday - nday)/MSEC_PER_DAY);
 
     if (diff <= 0) {
         diff = diff*-1;
@@ -136,7 +136,7 @@ function checkDay(TIME_GAP) {
 
     const pday = new Date(replaceall(date_msg.value, ".", "-")).getTime();
     const nday = new Date().getTime();
-    let diff = Math.floor((pday - nday - TIME_GAP)/MSEC_PER_DAY)+1;
+    let diff = Math.floor((pday - nday - TIME_GAP)/MSEC_PER_DAY);
 
     if (diff <= 0) {
         diff = diff*-1;
