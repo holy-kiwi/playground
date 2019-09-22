@@ -18,7 +18,7 @@ Playground의 Plugin을 개발하기 위해서는 기본적으로 파일 세 개
 | description      | 플러그인 스토어에 나타날 설명         | string |         |
 | width            | 플러그인의 width                      | number |         |
 | height           | 플러그인의 height                     | number |         |
-| image            | 플러그인의 image url                  | string |         |
+| image            | 플러그인의 image url (322 X 168 크기 권장) | string |         |
 
 다음은 manifest.json 예시이다.
 
