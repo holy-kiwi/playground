@@ -235,10 +235,12 @@
     border: 0px transparent;
     font-size: 2em;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 .develop_guide_btn {
     background-color: transparent;
     border: 0px transparent;
     font-size: 2em;
+    cursor: pointer;
 }
