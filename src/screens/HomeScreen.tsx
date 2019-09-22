@@ -51,6 +51,7 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
         return (
             <DndProvider backend={HTML5Backend}>
                 <div className="HomeScreenContainer">
+                    {TESTMODE && <UploaderView onUpload={this.onUpload} style={{position:'absolute', bottom: 0, right:0, width: 300, height: 100}}/>}
                     <div className="homescreen-HeaderContainer">
                         {'PLAYGROUND'}
                         <div className="homescreen-MenuButtonContainer">
@@ -63,7 +64,6 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
                             }} label={'RESET'} />}
                         </div>
                     </div>
-                    {TESTMODE && <UploaderView onUpload={this.onUpload} style={{width: 300}}/>}
                     <DragAndDropZone />
                 </div>
             </DndProvider>
