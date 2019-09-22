@@ -1,5 +1,6 @@
 import React from 'react';
 import './PluginItemCard.css';
+import './SKPluginItemCard.css';
 import { Link } from 'react-router-dom';
 import Plugin from '../models/Plugin';
 
@@ -30,19 +31,27 @@ const PluginItemCard = (props: Props) => {
                 </div>
             </div>
             :
-            <div className="PluginItemCard">
-                <div className="image_container">
-                    <img src="https://bhmlib.org/wp-content/themes/cosimo-pro/images/no-image-box.png" />
+            <div className="SKPluginItemCard">
+                <div className="skeleton1">
+                    <div className="bar">
+                        <div className="indicator" />
+                    </div>
+                    <div className="wrapper">
+                        <div className="list" />
+                    </div>
                 </div>
 
-                <div className="info_container">
-                    <div className="title">loading...</div>
-                    <div className="description">loading...</div>
-                    <button className="download_btn" disabled={loading} onClick={onDownload}>DOWNLOAD</button>
-                    <button className="detail_btn" disabled={loading}>SHOW DETAILS</button>
-
+                <div className="skeleton2">
+                    <div className="bar">
+                        <div className="indicator" />
+                    </div>
+                    <div className="wrapper">
+                        <div className="list" />
+                    </div>
                 </div>
+
             </div>
+            
 
     );
 
