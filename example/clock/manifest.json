@@ -1,8 +1,9 @@
 {
     "manifest_version": 1,
-    "name": "Clock",
+    "name": "시계",
     "version": "0.0.1",
-    "description": "This is just CLOCK",
+    "description": "현재 날짜와 시간을 보여주는 시계 플러그인입니다.",
     "width": 300,
-    "height": 180
+    "height": 180,
+    "image": "https://cdn.holy.kiwi/playground/clock.png"
 }

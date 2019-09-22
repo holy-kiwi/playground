@@ -1,8 +1,9 @@
 {
     "manifest_version": 1,
-    "name": "Bitcoin Tracker",
+    "name": "비트코인 시세조회",
     "version": "0.0.1",
-    "description": "This is just Bitcoin Tracker",
+    "description": "비트코인 시세를 편하게 조회할 수 있습니다",
     "width": 200,
-    "height": 200
+    "height": 200,
+    "image": "https://cdn.holy.kiwi/playground/btctracker.png"
 }

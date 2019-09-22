@@ -1,8 +1,9 @@
 {
     "manifest_version": 1,
-    "name": "Todo List",
+    "name": "투두리스트",
     "version": "0.0.1",
-    "description": "This is just TODO LIST",
+    "description": "할 일을 기록하고 체크할 수 있습니다",
     "width": 380,
-    "height": 220
+    "height": 220,
+    "image": "https://cdn.holy.kiwi/playground/todolist.png"
 }
