@@ -18,15 +18,21 @@ interface Props {
 
 interface State {
     plugin: Plugin;
+    loaded: boolean;
 }
 
 const { TextArea } = Input;
+
+const styles: React.CSSProperties = {
+    width: '100%',
+}
 
 class PluginUploadScreen extends Component<Props, State>{
     constructor(props) {
         super(props);
         this.state = {
             plugin: undefined,
+            loaded: false,
         }
     }
 
@@ -34,7 +40,12 @@ class PluginUploadScreen extends Component<Props, State>{
         uploadPlugin(acceptedFiles, (plugin: Plugin) => {
             this.setState({
                 plugin,
+                loaded: true,
             });
+
+            // document.getElementById('upload_name').style.display="inline";
+            // document.getElementById('upload_description').style.display="inline";
+
         });
     }
 
@@ -77,22 +88,36 @@ class PluginUploadScreen extends Component<Props, State>{
                     </div>
 
                     <div className="upload">
-                        제목
-                        <br/>
-                        <input className="name" placeholder="제목을 입력하세요."/>
-                        <br/>
+                        {
+                            this.state.loaded?
+                            <div style={styles}>
+                                <div id="upload_name">
+                                    제목
+                                    <input id="name" className="name" placeholder="제목을 입력하세요." readOnly value={plugin.manifest.name}/>
+                                </div>
 
-                        설명
-                        <br/>
-                        <textarea className="description" placeholder="설명을 입력하세요."/>
-                        <br/>
+                                <div id="upload_description">
+                                    설명
+                                    <textarea id="description" className="description" placeholder="설명을 입력하세요." readOnly value={plugin.manifest.description}/>
+                                </div>
 
-                        파일
-                        <br/>
-                        <div className="uploader_container">
-                            <UploaderView onUpload={this.onUpload} />
-                        </div>
+                                <div id="upload_file">
+                                    파일
+                                    <div className="uploader_container">
+                                        <UploaderView onUpload={this.onUpload} />
+                                    </div>
+                                </div>
+                            </div>
+                            :
+                            <div id="upload_file">
+                                파일
+                                <div className="uploader_container">
+                                    <UploaderView onUpload={this.onUpload} />
+                                </div>
+                            </div>
+                        }
                         
+                            
                     </div>
                     <div className="btn_container">
                         <button className="submit_btn" onClick={this.onSubmit}>업로드</button>
