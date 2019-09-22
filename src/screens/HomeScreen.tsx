@@ -63,7 +63,7 @@ class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
                             }} label={'RESET'} />}
                         </div>
                     </div>
-                    {TESTMODE && <UploaderView onUpload={this.onUpload} />}
+                    {TESTMODE && <UploaderView onUpload={this.onUpload} style={{width: 300}}/>}
                     <DragAndDropZone />
                 </div>
             </DndProvider>

@@ -39,6 +39,7 @@ const styles3: React.CSSProperties = {
 }
 
 interface Props {
+    style?: React.CSSProperties;
     onUpload: (acceptedFiles: File[]) => void;
 }
 
@@ -47,7 +48,7 @@ const UploaderView = (props: Props) => {
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
     return (
-        <div {...getRootProps()} style={styles}>
+        <div {...getRootProps()} style={{...styles, ...props.style}}>
             <input {...getInputProps()} />
             {
                 isDragActive ?
