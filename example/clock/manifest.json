@@ -3,6 +3,6 @@
     "name": "Clock",
     "version": "0.0.1",
     "description": "This is just CLOCK",
-    "width": 300,
-    "height": 100
+    "width": 400,
+    "height": 250
 }
