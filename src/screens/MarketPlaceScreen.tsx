@@ -56,7 +56,7 @@ class MarketPlaceScreen extends Component<Props, State> {
 
 
         {/* body */}
-        <div className="body">
+        <div className="body" >
           <PluginListContainer search={this.state.search_word}/>
         </div>
         {/* end of body */}

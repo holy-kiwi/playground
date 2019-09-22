@@ -88,6 +88,9 @@
     letter-spacing: normal;
     text-align: center; 
 }
+.PluginItemCard .info_container .download_btn:focus {
+  outline: none;
+}
 
 
 .PluginItemCard .info_container a {
@@ -113,6 +116,9 @@
   text-align: center;
   }
 
+.PluginItemCard .info_container .detail_btn:focus {
+  outline: none;
+}
 
 
 
