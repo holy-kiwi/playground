@@ -55,67 +55,50 @@ class PluginUploadScreen extends Component<Props, State>{
             <DndProvider backend={HTML5Backend}>
 
                 <div className="uploadScreenContainer">
-
+                    
                     <div className="header">
-
-                        <div className="title_container">
-                            <h1>플러그인 스토어</h1>
+                        <Link to={"/"}>{'PLAYGROUND'}</Link>
+                        <div className="search_container">
+                            <input className="search_bar" placeholder="Search Plugins!" />
+                            <div className="search_btn"> </div>
                         </div>
-
-                        {/* <div className="btn_container1">
-                            <Button type="primary" size="large" shape="round">정보</Button>
-                            <Button type="primary" size="large">유틸리티</Button>
-                            <Button type="primary" size="large">추천순</Button>
-                        </div> */}
-
-                    </div>
-                    {/* end of header */}
-
-
-                    <div className="btn_container2">
-                        <Link to={"/"}>
-                            <button className="home_btn">홈</button>
-                        </Link>
                     </div>
 
-
-                    <div className="Body">
-                        <div className="FormContainerBackground">
-                            <div className="FormContainer">
-                                <Form>
-                                    <Form.Item label="NAME">
-                                        <Input
-                                            placeholder="Input your Plugin's name"
-                                            size="large"
-                                            value={plugin !== undefined ? plugin.manifest.name : ''}
-                                            allowClear
-                                        />
-                                    </Form.Item>
-
-                                    <Form.Item label="DESCRIPTIONS">
-                                        <TextArea
-                                            placeholder="Input your Plugin's descriptions"
-                                            rows={6}
-                                            value={plugin !== undefined ? plugin.manifest.description : ''}
-                                        />
-                                    </Form.Item>
-
-                                    <Form.Item label="FILES">
-                                        <UploaderView onUpload={this.onUpload} />
-                                    </Form.Item>
-                                </Form>
-                            </div>
+                    <div className="under_header">
+                        <div className="description">PLUG-IN 업로드</div>
+                        <div className="btn_container">
+                            <Link to="/upload" id="upload">
+                            <button className="upload_btn">업로드</button>
+                            </Link>
+                            <Link to="/guide">
+                            <button className="develop_guide_btn">개발가이드</button>
+                            </Link>
                         </div>
-
-                        <div className="subminBtnContainer">
-                            <Button
-                                onClick={this.onSubmit}>Submit!</Button>
-                        </div>
-
                     </div>
 
+                    <div className="upload">
+                        제목
+                        <br/>
+                        <input className="name" placeholder="제목을 입력하세요."/>
+                        <br/>
 
+                        설명
+                        <br/>
+                        <textarea className="description" placeholder="설명을 입력하세요."/>
+                        <br/>
+
+                        파일
+                        <br/>
+                        <div className="uploader_container">
+                            <UploaderView onUpload={this.onUpload} />
+                        </div>
+                        
+                    </div>
+                    <div className="btn_container">
+                        <button className="submit_btn" onClick={this.onSubmit}>업로드</button>
+                    </div>
                 </div>
+                    
             </DndProvider>
 
 
