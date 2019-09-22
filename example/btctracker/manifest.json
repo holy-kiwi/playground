@@ -3,6 +3,6 @@
     "name": "Bitcoin Tracker",
     "version": "0.0.1",
     "description": "This is just Bitcoin Tracker",
-    "width": 240,
-    "height": 240
+    "width": 200,
+    "height": 200
 }
