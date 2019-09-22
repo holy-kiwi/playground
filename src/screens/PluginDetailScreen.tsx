@@ -14,31 +14,14 @@ class PluginDetailScreen extends Component<Props> {
         return (
             <div className="detailScreen">
 
-                {/* header */}
                 <div className="header">
-
-                    <div className="title_container">
-                        <h1>플러그인 스토어</h1>
+                    <Link to={"/"}>{'PLAYGROUND'}</Link>
+                    <div className="search_container" >
+                        <input className="search_bar" placeholder="Search Plugins!" />
+                        <div className="search_btn"> </div>
                     </div>
-
-                    {/* <div className="btn_container1">
-                        <Button type="primary" size="large" shape="round">정보</Button>
-                        <Button type="primary" size="large">유틸리티</Button>
-                        <Button type="primary" size="large">추천순</Button>
-                    </div> */}
-
-                </div>
-                {/* end of header */}
-
-
-                <div className="btn_container2">
-                    <Link to={"/"}>
-                        <button className="home_btn">홈</button>
-                    </Link>
                 </div>
 
-
-                {/* body */}
                 <PluginDetailContainer />
 
             </div>

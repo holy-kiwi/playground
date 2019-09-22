@@ -1,0 +1,135 @@
+.PluginItemCard {
+  width: 324px;
+  height: 344px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  
+  background: #f3f3f3;
+  border: solid 1px #c1c1c1;
+
+  margin: 10px;
+}
+
+.PluginItemCard .image_container {
+  width: 100%;
+  height: 169px;
+
+  border: solid 1px #c1c1c1;
+  background-color:#e6e6e6;
+}
+
+.PluginItemCard .image_container img {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.PluginItemCard .info_container {
+  width: 100%;
+  height: 175px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  border: solid 1px #c1c1c1;
+  background-color: #f3f3f3;
+  padding-top: 4px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.PluginItemCard .info_container .title {
+  width: 100%;
+  height: 42px;
+  text-align: center;
+  color: #000000;
+  
+  font-family: 'NotoSansKR';
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  text-align: center;
+}
+
+.PluginItemCard .info_container .description {
+  width: 100%;
+  height: 35px;
+  
+  font-family: 'NotoSansKR';
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: center;
+  margin-top: 8px;
+  color: #676767;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.PluginItemCard .info_container .download_btn {
+    width: 60%;
+    height: 30px;
+    margin-top: 12px;
+    
+    border-radius: 21px;
+    background-color: #000000;
+    color: #ffffff;
+
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.22;
+    letter-spacing: normal;
+    text-align: center; 
+    cursor: pointer;
+}
+.PluginItemCard .info_container .download_btn:focus {
+  outline: none;
+}
+
+
+.PluginItemCard .info_container a {
+  width: 60%;
+}
+
+.PluginItemCard .info_container .detail_btn {
+  width: 100%;
+  height: 30px;
+  margin-top: 5px;
+  
+  border-radius: 21px;
+  background-color: #d3d3d3;
+  color: #ffffff;
+
+  font-family: 'Montserrat';
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.22;
+  letter-spacing: normal;
+  text-align: center;
+  cursor: pointer;
+  }
+
+.PluginItemCard .info_container .detail_btn:focus {
+  outline: none;
+}
+
+
+
+
+
+

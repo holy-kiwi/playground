@@ -8,130 +8,47 @@
     background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
     min-height: 100vh;
 
+    font-family: 'Montserrat', sans-serif;
+    background: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
-.header {
-    /* background-color: red; */
-    width: 80%;
+.detailScreen div.header {
+    width: 100%;
+    height: 96px;
     display: flex;
     justify-content: space-between;
-    align-content: flex-start;
-    margin-top: 15px;
+    align-items: center;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.25);
+
+    padding-left: 72px;
+    padding-right: 72px;
+    font-family: "Montserrat";
+    font-size: 32px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.11;
+    letter-spacing: 7.2px;
+    color: #000000;
+    opacity: 0.75;
+    background-image: linear-gradient(268deg, #016ca0, #369694);
+    margin-top: 0px;
 }
 
-.title_container {
-    /* background-color: yellow; */
-    width: 40%;
-    display: flex;
-    justify-content: flex-start;
-    align-content: center;
+.detailScreen div.header a:link {
+    color: black;
 }
-
-.btn_container1 {
-    /* background-color: blue; */
-    width: 40%;
-    display: flex;
-    justify-content: space-around;
+.detailScreen div.header a:visited {
+    color: black;
 }
-
-.btn_container2 {
-    position: absolute;
-    top: 10px;
-    right: 30px;
-}
-
-.home_btn {
-    background-color: transparent;
-    border: 0px transparent;
-    font-size: 2em;
+.detailScreen div.header a:hover {
+    color: white;
 }
 
 
-
-
-/*body css part*/
-.body {
-    width: 80%;
-    /* height: 90%; */
-    min-width: 700px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
-}
-.detail {
-    flex-direction: column;
-    margin: 15px;
-    /* background-color: red; */
-    border-radius: 25px;
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-.pluginTitleContainer {
-    width: 60%;
-    /* background-color: yellow; */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-bottom: 10px;
-    padding: 5px;
-}
-
-.pluginImageContainer {
-    margin-bottom: 15px;
-    width: 540px;
-    height: 300px;
-    background-color: rgba(0, 0, 0, 0.4);
-    overflow: hidden;
-}
-
-.pluginImageContainer img_row {
-    width: 540px;
-    height: auto;   
-}
-
-.pluginImageContainer img_col {
-    height: 300px;
-    width: auto;
-    
-}
-
-.pluginDescriptionContainer {
-    width: 60%;
-    min-width: 540px;
-    min-height: 100px;
-    /* background-color: yellow; */
-    text-align: left;
-    margin-bottom: 20px;
-    padding: 5px;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.45);
-
-}
-
-
-
-.btn_container4 {
-    width: 60%;
-    min-width: 540px;
-    /* background-color: red; */
-    position: relative;
-    bottom: 0px;
-    right: 0px;
-    display: flex;
-    justify-content: flex-end;
-    align-content: center;
-    margin-bottom: 15px;
-
-    
-}
-
-
-.download_btn {
-    background-color: transparent;
-    border: 0px transparent;
-    font-size: 2em;
-    height: auto;
-   
+.detailScreen div.header div.search_container {
+    visibility: hidden;
 }

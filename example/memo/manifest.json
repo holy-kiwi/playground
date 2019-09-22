@@ -1,8 +1,9 @@
 {
     "manifest_version": 1,
-    "name": "Memo",
+    "name": "메모장",
     "version": "0.0.1",
-    "description": "This is just Memo",
-    "width": 200,
-    "height": 200
+    "description": "메모를 기록할 수 있습니다",
+    "width": 240,
+    "height": 240,
+    "image": "https://cdn.holy.kiwi/playground/memo.png"
 }

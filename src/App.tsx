@@ -15,6 +15,7 @@ function App() {
       <Provider HomeScreenStore={new HomeScreenStore()}>
         <BrowserRouter>
           <Route exact path="/" component={HomeScreen} />
+          {/* <Route path="/index.html" component={HomeScreen} /> */}
           <Route path="/upload" component={PluginUploadScreen} />
           <Route path="/guide" component={GuideScreen}/>
           <Switch>

@@ -9,22 +9,30 @@ import './PluginUploadScreen.css';
 import { uploadPlugin } from '../models/Uploader';
 import Plugin from '../models/Plugin';
 import PluginAgent from '../agent/PluginAgent';
+import { History } from 'history';
+import { withRouter } from 'react-router';
 
 interface Props {
-
+    history: History;
 }
 
 interface State {
     plugin: Plugin;
+    loaded: boolean;
 }
 
 const { TextArea } = Input;
 
+const styles: React.CSSProperties = {
+    width: '100%',
+}
+
 class PluginUploadScreen extends Component<Props, State>{
-    constructor(props: Props) {
+    constructor(props) {
         super(props);
         this.state = {
             plugin: undefined,
+            loaded: false,
         }
     }
 
@@ -32,13 +40,23 @@ class PluginUploadScreen extends Component<Props, State>{
         uploadPlugin(acceptedFiles, (plugin: Plugin) => {
             this.setState({
                 plugin,
+                loaded: true,
             });
+
+            // document.getElementById('upload_name').style.display="inline";
+            // document.getElementById('upload_description').style.display="inline";
+
         });
     }
 
     onSubmit = async () => {
-        if (this.state.plugin === undefined) return;
+        if (this.state.plugin === undefined) {
+            alert('플러그인을 업로드해주세요!');
+            return;
+        }
         await PluginAgent.uploadPlugin(this.state.plugin);
+        alert('플러그인이 업로드되었습니다.');
+        this.props.history.push('/store');
     }
 
     render() {
@@ -47,68 +65,65 @@ class PluginUploadScreen extends Component<Props, State>{
         return (
             <DndProvider backend={HTML5Backend}>
 
-                <div className="HomeScreenContainer">
-
+                <div className="uploadScreenContainer">
+                    
                     <div className="header">
-
-                        <div className="title_container">
-                            <h1>플러그인 스토어</h1>
+                        <Link to={"/"}>{'PLAYGROUND'}</Link>
+                        <div className="search_container">
+                            <input className="search_bar" placeholder="Search Plugins!" />
+                            <div className="search_btn"> </div>
                         </div>
-
-                        {/* <div className="btn_container1">
-                            <Button type="primary" size="large" shape="round">정보</Button>
-                            <Button type="primary" size="large">유틸리티</Button>
-                            <Button type="primary" size="large">추천순</Button>
-                        </div> */}
-
-                    </div>
-                    {/* end of header */}
-
-
-                    <div className="btn_container2">
-                        <Link to={"/"}>
-                            <button className="home_btn">홈</button>
-                        </Link>
                     </div>
 
+                    <div className="under_header">
+                        <div className="description">PLUG-IN 업로드</div>
+                        <div className="btn_container">
+                            <Link to="/upload" id="upload">
+                            <button className="upload_btn">업로드</button>
+                            </Link>
+                            <Link to="/guide">
+                            <button className="develop_guide_btn">개발가이드</button>
+                            </Link>
+                        </div>
+                    </div>
 
-                    <div className="Body">
-                        <div className="FormContainerBackground">
-                            <div className="FormContainer">
-                                <Form>
-                                    <Form.Item label="NAME">
-                                        <Input
-                                            placeholder="Input your Plugin's name"
-                                            size="large"
-                                            value={plugin !== undefined ? plugin.manifest.name : ''}
-                                            allowClear
-                                        />
-                                    </Form.Item>
+                    <div className="upload">
+                        {
+                            this.state.loaded?
+                            <div style={styles}>
+                                <div id="upload_name">
+                                    제목
+                                    <input id="name" className="name" placeholder="제목을 입력하세요." readOnly value={plugin.manifest.name}/>
+                                </div>
 
-                                    <Form.Item label="DESCRIPTIONS">
-                                        <TextArea
-                                            placeholder="Input your Plugin's descriptions"
-                                            rows={6}
-                                            value={plugin !== undefined ? plugin.manifest.description : ''}
-                                        />
-                                    </Form.Item>
+                                <div id="upload_description">
+                                    설명
+                                    <textarea id="description" className="description" placeholder="설명을 입력하세요." readOnly value={plugin.manifest.description}/>
+                                </div>
 
-                                    <Form.Item label="FILES">
+                                <div id="upload_file">
+                                    파일
+                                    <div className="uploader_container">
                                         <UploaderView onUpload={this.onUpload} />
-                                    </Form.Item>
-                                </Form>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                        <div className="subminBtnContainer">
-                            <Button
-                                onClick={this.onSubmit}>Submit!</Button>
-                        </div>
-
+                            :
+                            <div id="upload_file">
+                                파일
+                                <div className="uploader_container">
+                                    <UploaderView onUpload={this.onUpload} />
+                                </div>
+                            </div>
+                        }
+                        
+                            
                     </div>
-
-
+                    <div className="btn_container">
+                        <button className="submit_btn" onClick={this.onSubmit}>업로드</button>
+                    </div>
                 </div>
+                    
             </DndProvider>
 
 
@@ -118,4 +133,4 @@ class PluginUploadScreen extends Component<Props, State>{
 
 
 
-export default PluginUploadScreen;
+export default withRouter(PluginUploadScreen);

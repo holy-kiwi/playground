@@ -1,0 +1,113 @@
+<style>
+    body {
+        margin: 0;
+    }
+
+    #todolist-container {
+        width: 380px;
+        height: 220px;
+        padding-top: 32px;
+        padding-left: 37px;
+        padding-right: 37px;
+        background-color: #fff;
+    }
+
+    #todolist-header {
+        height: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+
+    #todolist-body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    #todolist-title {
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 1.21;
+        letter-spacing: normal;
+        color: #000;
+    }
+
+    #todolist-reset {
+        font-size: 12px;
+        line-height: 1.21;
+        letter-spacing: normal;
+        color: #000;
+        cursor: pointer;
+    }
+
+    .todolist-contents {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .todolist-checkbox {
+        width: 20px;
+        height: 20px;
+        border: solid 2px #000000;
+        background-color: #00000000;
+        cursor: pointer;
+        margin-right: 8px;
+    }
+
+    .todolist-checkbox.checked {
+        background-color: #000000;
+    }
+
+    .todolist-input {
+        border: 0px;
+        border-bottom: 2px solid #000;
+        outline: none;
+        width: 300px;
+    }
+</style>    
+<div id="todolist-container">
+    <div id="todolist-header">
+        <div id="todolist-title">
+            TODO LIST
+        </div>
+        <div id="todolist-reset">
+            RESET
+        </div>
+    </div>
+    <div id="todolist-body">
+        <div class="todolist-contents" key="0">
+            <div class="todolist-checkbox" key="0">
+            </div>
+            <input type="input" class="todolist-input" key="0">
+            </input>
+        </div>
+        <div class="todolist-contents" key="1">
+            <div class="todolist-checkbox" key="1">
+            </div>
+            <input type="input" class="todolist-input" key="1">
+            </input>
+        </div>
+        <div class="todolist-contents" key="2">
+            <div class="todolist-checkbox" key="2">
+            </div>
+            <input type="input" class="todolist-input" key="2">
+            </input>
+        </div>
+        <div class="todolist-contents" key="3">
+            <div class="todolist-checkbox" key="3">
+            </div>
+            <input type="input" class="todolist-input" key="3">
+            </input>
+        </div> 
+    </div>
+</div>

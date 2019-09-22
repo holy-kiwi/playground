@@ -33,6 +33,7 @@ class PluginListContainer extends Component<Props, State> {
 
     async componentDidMount() {
         const plugins: Plugin[] = await PluginAgent.fetchPlugins();
+        if (plugins === undefined) alert('일시적인 서버 오류입니다.');
         this.setState({
             plugins,
             pluginsLoading: false,
@@ -71,6 +72,7 @@ class PluginListContainer extends Component<Props, State> {
         if (search === undefined || search === '') return plugins;
         return plugins.filter(plugin => {
             const { name, description } = plugin.manifest;
+            if (name === undefined || description === undefined) return false;
             return name.toLowerCase().includes(search) || description.toLowerCase().includes(search);
         });
     }

@@ -1,0 +1,9 @@
+{
+    "manifest_version": 1,
+    "name": "미세먼지",
+    "version": "0.0.1",
+    "description": "미세먼지를 확인할 수 있습니다",
+    "width": 200,
+    "height": 200,
+    "image": "https://cdn.holy.kiwi/playground/finedust.png"
+}

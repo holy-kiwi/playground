@@ -1,0 +1,196 @@
+.plugindetail {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    background-color: #08AEEA;
+    background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+    min-height: 100vh;
+
+    font-family: 'Montserrat', sans-serif;
+    background: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+.plugindetail div.plugin_info {
+    width: 100%;
+    padding-left: 72px;
+    padding-right: 72px;
+    padding-top: 88px;
+    padding-bottom: 66px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-family: 'NotoSansKR';
+}
+
+.plugindetail div.plugin_info div.image_container {
+    width: 322px;
+    min-width: 322px;
+    height: 168px;
+    border: solid 1px #c1c1c1;
+    background-color:#e6e6e6;
+}
+
+.plugindetail div.plugin_info div.image_container img {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+
+.plugindetail div.plugin_info div.right {
+    width: 100%;
+    min-width: 700px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.plugindetail div.plugin_info div.right div.info_container {
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 24px;
+
+    font-family: 'NotoSansKR';
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #6d6d6d;
+
+}
+
+.plugindetail div.plugin_info div.right div.info_container  div.name {
+    width: 100%;
+    height: auto;
+    font-size: 56px;
+    font-weight: bold;
+    color: #000000;
+}
+
+
+.plugindetail div.plugin_info div.right div.btn_container {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+
+
+.plugindetail div.plugin_info div.btn_container .download_btn {
+    width: 194px;
+    height: 30px;
+    
+    border-radius: 21px;
+    background-color: #000000;
+    color: #ffffff;
+
+    font-family: 'Montserrat';
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.22;
+    letter-spacing: normal;
+    text-align: center; 
+    cursor: pointer;
+}
+.plugindetail div.plugin_info div.btn_container .download_btn:focus {
+    outline: none;
+}
+
+.plugindetail div.plugin_description {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.plugindetail div.plugin_description div.line {
+    width: 100%;
+    height: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+}
+
+.plugindetail div.plugin_description div.line div.center{
+    width: 100%;
+    height: 0;
+    border: solid 1px #c1c1c1;
+    margin-left: 72px;
+    margin-right: 72px;
+}
+
+.plugindetail div.plugin_description div.info {
+    width: 100%;
+    height: 80px;
+    margin-left: 72px;
+    margin-right: 72px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: 'NotoSansKR';
+    font-size: 36px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+}
+
+.plugindetail div.plugin_description div.description {
+    width: 100%;
+    height: 208px;
+     
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 100px;
+}
+
+.plugindetail div.plugin_description div.description div.center{
+    width: 100%;
+    height: 208px;
+    margin-left: 72px;
+    margin-right: 72px;
+       
+    padding-left: 200px;
+    padding-right: 200px;;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    font-family: NotoSansKR;
+    font-size: 24px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.58;
+    letter-spacing: normal;
+    text-align: center;
+    color: #3a3a3a;
+    background-color: #f3f3f3;     
+}
