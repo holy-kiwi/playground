@@ -1,26 +1,45 @@
-<div id="container">
-    <div id="dollar">
-        1BTC = Loading...
-    </div>
-
-</div>
 <style>
     body {
         margin: 0;
     }
 
-    #container {
+    #btctracker-container {
+        width: 240px;
+        height: 240px;
         display: flex;
-        height: 100px;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         background-color: #ffffff00;
+        border: solid 5px #016ca0;
+        border-radius: 120px;
     }
 
-    #dollar {
-        color: #fff;
-        font-size: 32px;
-        text-shadow: 0px 2px 8px #444;
+    #btctracker-btc {
+        color: #000;
+        font-size: 36px;
+        /* text-shadow: 0px 2px 8px #444; */
         user-select: none;
+        line-height: 1.5;
+        letter-spacing: 0.12px;
+        font-weight: bold;
+    }
+
+    #btctracker-dollar {
+        color: #000;
+        font-size: 24px;
+        /* text-shadow: 0px 2px 8px #444; */
+        user-select: none;
+        line-height: 1.5;
+        letter-spacing: 0.12px;
+        font-weight: bold;
     }
 </style>
+<div id="btctracker-container">
+    <div id="btctracker-btc">
+        1BTC
+    </div>
+    <div id="btctracker-dollar">
+        Loading...
+    </div>
+</div>
