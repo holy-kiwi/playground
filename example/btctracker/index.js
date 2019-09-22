@@ -1,4 +1,4 @@
-const dollar = document.getElementById('dollar');
+const dollar = document.getElementById('btctracker-dollar');
 
 const getDollarPerBTC = () => {
     request(
@@ -12,7 +12,7 @@ const getDollarPerBTC = () => {
                 const result = $(
                     'span.details-panel-item--price__value'
                 ).text();
-                dollar.innerHTML = '1BTC = $' + result;
+                dollar.innerHTML = '$' + result;
             }
         }
     );

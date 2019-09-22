@@ -17,14 +17,14 @@ const styles: { [key: string]: React.CSSProperties } = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        width: 30,
-        height: 30,
-        right: -15,
-        top: -15,
+        width: 24,
+        height: 24,
+        right: -12,
+        top: -12,
         cursor: 'pointer',
-        borderRadius: 15,
-        backgroundColor: 'gray',
         zIndex: 100,
+        backgroundImage: `url(${require('../assets/delete-btn.png')})`,
+        backgroundSize: 'cover',
     }
 }
 
@@ -54,7 +54,7 @@ const Draggable: React.FC<DraggableProps> = ({
     }
     return (
         <div ref={drag} style={{ ...styles.container, left, top }}>
-            <div style={styles.deleteButton} onClick={() => onDelete(id)}>X</div>
+            <div style={styles.deleteButton} onClick={() => onDelete(id)}></div>
             {children}
         </div>
     )
