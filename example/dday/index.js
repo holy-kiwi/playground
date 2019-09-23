@@ -11,6 +11,7 @@ const DEFAULT_REMAIN = "D-DAY";
 const KEY_DDAY_MSG = "key:dday_msg";
 const KEY_DDAY_DAY = "key:dday_day";
 const KEY_DDAY_REMAIN = "key:dday_remain";
+const MSEC_PER_DAY = 24*60*60*1000;
 
 
 function replaceall(str, searchStr, replaceStr) {
@@ -64,6 +65,7 @@ date_picker.addEventListener('change', (e)=> {
         date_msg.value = replaceall(date_picker.value, "-", ".");
         localStorage.setItem(KEY_DDAY_DAY, date_msg.value);
     }
+    // console.log(e.target.value);
     checkDay(e.target.value);
 })
 //저장하는 부분 끝
@@ -117,7 +119,7 @@ setInterval(() => {
 //바로위의 setInterval()과 date_picker.addEventListener()에서 호출
 function checkDay(input) {
 
-    const pday = new Date(input).setHours(0);
+    const pday = new Date(input).setHours(0,0,0,0);
     const nday = new Date().setHours(0,0,0,0);
     let diff = Math.floor((pday - nday)/MSEC_PER_DAY);
 
