@@ -2,7 +2,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/earlyaccess/hanna.css">
 </head>
-<div id="container">
+<div id="wiseSaying_container">
     <div id="message">
         LOADING...
     </div>
@@ -16,7 +16,7 @@
         margin: 0;
     }
 
-    #container {
+    div#wiseSaying_container {
         display: flex;
         flex-direction: column;
         width: auto;
@@ -31,21 +31,19 @@
         border: solid 1px #c1c1c1;
     }
 
-    #message {
+    div#wiseSaying_container div#message {
         min-width: 100%;
         min-height: 70px;
-        {% comment %} background-color: green; {% endcomment %}
-        font-size: x-large;
+        font-size: large;
         display: flex;
         justify-content: center;
         align-items: center;
         
     }
 
-    #author {
+    div#wiseSaying_container div#author {
         min-width: 100%;
         min-height: 30px;
-        {% comment %} background-color: blue; {% endcomment %}
         font-size: large;
         display: flex;
         justify-content: center;
