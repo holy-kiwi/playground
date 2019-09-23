@@ -1,0 +1,8 @@
+{
+	"manifest_version": 1,
+	"name": "구글검색",
+	"version": "0.0.1",
+	"description": "구글 검색 엔진을 사용하여 검색합니다.",
+	"width": 200,
+	"height": 200
+}
