@@ -4,5 +4,6 @@
     "version": "0.0.1",
     "description": "기념일과 다가오는 이벤트를 저장해보세요!",
     "width": 350,
-    "height": 100
+    "height": 100,
+    "image": "https://cdn.holy.kiwi/playground/dday.png"
 }

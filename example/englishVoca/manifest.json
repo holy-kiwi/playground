@@ -4,5 +4,6 @@
     "version": "0.0.1",
     "description": "매일 새로운 영단어를 여러분께 소개합니다",
     "width": 250,
-    "height": 150
+    "height": 150,
+    "image": "https://cdn.holy.kiwi/playground/voca.png"
 }
