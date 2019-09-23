@@ -1,42 +1,47 @@
-<div id="container">
-	<div id="search_by_naver">
-		<img src="http://bwithmag.com/wp-content/uploads/2018/06/2%E1%84%82%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A5-N-%E1%84%85%E1%85%A9%E1%84%80%E1%85%A9.jpg" id="naver_logo">
-		<input id="search_naver_keyword" type="text"/>
-		<input id="search_naver_button" value="검색" type="button"/>
-	</div>
-</div>
 <style>
 	body {
 		margin: 0;
 	}
 
-	#container {
+	#naversearch-container {
+		width: 600px;
+		height: 60px;
 		display: flex;
-		height: 200px;
 		justify-content: center;
 		align-items: center;
-		background-color: #ffffff;
+		background-color: #ffffff00;
 	}
 
-	#naver_logo {
-		 width: 80px;
-		 height: 80px;
-		 position: relative;
-		 margin-bottom: 20px;
-		 left: 30%;
-	}
-
-	#search_naver_keyword {
-		position: relative;
-		left: 7%;
+	#naversearch-input {
+		border: 10px solid #2DB400;
+		outline: none;
+		width: 500px;
+		height: 60px;
+		font-size: 32px;
+		font-weight: bold;
+		color: #000;
 	}
 	
-	#search_naver_button {
-		width: 80px;
-		height: 30px;
-		margin-top: 10px;
+	#naversearch-input::placeholder {
+		color: #e7e7e7;
+	}
+
+	#naversearch-button {
+		all: unset;
+		width: 90px;
+		height: 60px;
 		position: relative;
-		top: 70%;
-		left: 30%;
+		margin-left: 10px;
+		font-weight: bold;
+		font-size: 24px;
+		color: #fff;
+		text-align: center;
+		background-color: #2DB400;
+		cursor: pointer;
 	}
 </style>
+<div id="naversearch-container">
+	<!-- <img src="http://bwithmag.com/wp-content/uploads/2018/06/2%E1%84%82%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A5-N-%E1%84%85%E1%85%A9%E1%84%80%E1%85%A9.jpg" id="naversearch-logo"> -->
+	<input id="naversearch-input" type="text" placeholder="네이버에 검색하세요"/>
+	<input id="naversearch-button" value="검색" type="button"/>
+</div>
