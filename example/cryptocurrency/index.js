@@ -1,6 +1,6 @@
 var ex;
 var price;
-const crypto_quotes = document.getElementById('search_crypto_quotes');
+const crypto_quotes = document.getElementById('cryptocurrency-list');
 
 var crypto_list = [
 	'bitcoin',
@@ -41,7 +41,7 @@ const search_crypto_quotes = () => {
 				for (var name of crypto_list) {
 					name = make_id_name(name);
 					price = cheerio.load(html)('tr#'.concat(name).concat(' .price')).text();
-					quotes_str += '<li>' + name.substring(3) + ': '
+					quotes_str += '<li><b>' + name.substring(3) + '</b>: '
 								  + number_with_commas(Math.round(Number(ex)*Number(price.substr(1))))
 								  + '원</li>';
 				}

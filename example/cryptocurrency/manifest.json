@@ -1,8 +1,9 @@
 {
 	"manifest_version": 1,
-	"name": "암호화폐 시세 검색",
+	"name": "주요 암호화폐 시세 조회",
 	"version": "0.0.1",
-	"description": "암호화폐 시세를 검색합니다.",
+	"description": "주요 암호화폐 시세를 조회합니다.",
 	"width": 200,
-	"height": 200
+	"height": 200,
+	"image": "https://cdn.holy.kiwi/playground/cryptocurrency.png"
 }

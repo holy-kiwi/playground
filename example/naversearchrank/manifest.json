@@ -1,8 +1,9 @@
 {
 	"manifest_version": 1,
-	"name": "네이버 실시간 검색어",
+	"name": "네이버 실시간 검색어 차트",
 	"version": "0.0.1",
 	"description": "네이버의 실시간 검색어 순위를 보여줍니다.",
 	"width": 200,
-	"height": 500
+	"height": 300,
+	"image": "https://cdn.holy.kiwi/playground/naversearchrank.png"
 }
