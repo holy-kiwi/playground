@@ -52,9 +52,8 @@ const meaning = document.getElementById('meaning');
 
 const setVoca = () => {
     const today = new Date();
-    // const day = Math.floor((today.getTime()/(24*60*60*1000))%SIZE_OF_DATA);
-    const day = 7;
-
+    const day = Math.floor((today.getTime()/(24*60*60*1000))%SIZE_OF_DATA);
+ 
     voca.innerHTML = vocaArr[day].word;
     meanings = vocaArr[day].meaning.map((value, index) => {
         return `<b>${index+1}</b>.`+value;
