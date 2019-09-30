@@ -1,0 +1,73 @@
+<head>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/earlyaccess/hanna.css">
+</head>
+
+<div id="topsites_container">
+
+    <div class="row">
+        <a class="tile">
+            <div class="tile_inner">
+                <div class="tile_name"> 네이버 </div>
+            </div>
+        </a>
+    
+    </div>
+</div>
+
+<style>
+
+    body {
+        margin: 0;
+    }
+
+    div#topsites_container {
+        width: 560px;
+        height: 125px;
+        padding: 0px;
+        
+        background-color: #7BAFC5;
+        background-color: red;
+        border-radius: 20px;
+        border: solid 1px #ffffff;
+    }
+
+    div#topsites_container div.row {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    div#topsites_container div.row a.tile {
+        width: 112px;
+        height: 100%;
+    }
+
+    div#topsites_container div.row a.tile div.tile_inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: blue;
+    }
+
+    div#topsites_container div.row a.tile div.tile_inner img.time_img {
+        width: 50px;
+        height: 50px;
+        background-color: yellow;
+
+    }
+
+    div#topsites_container div.row a.tile div.tile_inner div.tile_name {
+        width: 100%;
+        height: 20%;
+        text-align: center;
+
+    }
+
+</style>
