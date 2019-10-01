@@ -1,0 +1,8 @@
+{
+    "manifest_version": 1,
+    "name": "이미지 뷰어",
+    "version": "0.0.1",
+    "description": "자주 확인해야 하는 시간표나 기념할 만한 사진을 등록해 사용해보세요!",
+    "width": 350,
+    "height": 400 
+}
