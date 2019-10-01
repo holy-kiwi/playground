@@ -1,0 +1,47 @@
+<head>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/earlyaccess/hanna.css">
+</head>
+
+<div id="imgviewer_container">
+    <img id="default_img" src="https://www.tellerreport.com/images/no-image.png" alt="" />
+    <img id="display_img" style="display: none;"/>
+    <input id="input" type="file" accept="image/x-png,image/gif,image/jpeg" style="display: none;"/>
+</div>
+
+<style>
+    body {
+        margin: 0;
+    }
+
+    div#imgviewer_container {
+        width: 350px;
+        height: 400px;
+        padding: 0px;
+        
+        background-color: #7BAFC5;
+        background-color: red;
+        border-radius: 20px;
+        border: solid 1px #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    div#imgviewer_container img#default_img {
+        width: 100%;
+        height: 100%;
+        background: green;
+    }
+    div#imgviewer_container img#display_img {
+        width: 100%;
+        height: 100%;
+        background: pink;
+    }
+
+    div#imgviewer_container input {
+        width: 100%;
+        height: 100%;
+    }
+</style>
