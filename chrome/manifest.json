@@ -3,7 +3,7 @@
 
   "name": "Playground",
   "description": "Playground Dashboard using Plugin",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
