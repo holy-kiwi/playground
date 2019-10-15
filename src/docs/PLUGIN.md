@@ -94,7 +94,7 @@ function pad(num) {
 
 ## 테스트 방법
 
-1. [https://home.plgr.app?testmode=true](https://home.plgr.app?testmode=true)에 접속한다.
+1. [https://plgr.netlify.com?testmode=true](https://plgr.netlify.com?testmode=true)에 접속한다.
 2. `manifest.json`, `index.html`, `index.js`를 한꺼번에 드래그하여 좌측상단에 놓는다.
 3. 잘작동하는지 테스트한다.
 
